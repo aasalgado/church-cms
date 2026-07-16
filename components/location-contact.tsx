@@ -1,44 +1,48 @@
-import { Clock, Mail, MapPin, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { locationContactContent } from "@/content/home-content";
 
 const details = [
   {
     icon: MapPin,
-    label: "Visit Us",
-    value: "142 Maple Grove Lane, Cedar Falls, IA 50613",
+    label: locationContactContent.details[0]?.label ?? "",
+    value: locationContactContent.details[0]?.value ?? "",
   },
   {
     icon: Clock,
-    label: "Sundays",
-    value: "9:00 AM & 11:00 AM",
+    label: locationContactContent.details[1]?.label ?? "",
+    value: locationContactContent.details[1]?.value ?? "",
   },
   {
     icon: Phone,
-    label: "Call",
-    value: "(319) 555-0142",
+    label: locationContactContent.details[2]?.label ?? "",
+    value: locationContactContent.details[2]?.value ?? "",
   },
   {
     icon: Mail,
-    label: "Email",
-    value: "hello@gracehollow.church",
+    label: locationContactContent.details[3]?.label ?? "",
+    value: locationContactContent.details[3]?.value ?? "",
   },
-]
+];
 
 export function LocationContact() {
+  if (!locationContactContent.enabled) {
+    return null;
+  }
+
   return (
     <section id="contact" className="bg-secondary py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
-              Plan Your Visit
+              {locationContactContent.eyebrow}
             </p>
             <h2 className="mt-3 text-balance font-serif text-3xl font-semibold text-foreground sm:text-4xl">
-              We&apos;d Love to Meet You
+              {locationContactContent.heading}
             </h2>
             <p className="mt-4 max-w-md text-pretty leading-relaxed text-muted-foreground">
-              Have a question or planning to join us for the first time? Reach
-              out — we&apos;ll save you a seat and help you feel right at home.
+              {locationContactContent.intro}
             </p>
 
             <ul className="mt-8 space-y-5">
@@ -51,7 +55,9 @@ export function LocationContact() {
                     <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
                       {item.label}
                     </p>
-                    <p className="text-pretty font-medium text-foreground">{item.value}</p>
+                    <p className="text-pretty font-medium text-foreground">
+                      {item.value}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -59,11 +65,17 @@ export function LocationContact() {
 
             <Button
               nativeButton={false}
-              render={<a href="https://maps.google.com" target="_blank" rel="noreferrer" />}
+              render={
+                <a
+                  href={locationContactContent.button.href}
+                  target="_blank"
+                  rel="noreferrer"
+                />
+              }
               size="lg"
               className="mt-9 rounded-full px-8"
             >
-              Get Directions
+              {locationContactContent.button.label}
             </Button>
           </div>
 
@@ -78,5 +90,5 @@ export function LocationContact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

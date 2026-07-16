@@ -1,40 +1,44 @@
-import { Clock, MapPin, Users } from "lucide-react"
+import { Clock, MapPin, Users } from "lucide-react";
+import { serviceTimesContent } from "@/content/home-content";
 
 const services = [
   {
     icon: Clock,
-    title: "Sunday Worship",
-    time: "9:00 & 11:00 AM",
-    description: "Contemporary worship, teaching, and community for all ages.",
+    title: serviceTimesContent.services[0]?.title ?? "",
+    time: serviceTimesContent.services[0]?.time ?? "",
+    description: serviceTimesContent.services[0]?.description ?? "",
   },
   {
     icon: Users,
-    title: "Wednesday Gathering",
-    time: "7:00 PM",
-    description: "Midweek prayer, small groups, and Bible study.",
+    title: serviceTimesContent.services[1]?.title ?? "",
+    time: serviceTimesContent.services[1]?.time ?? "",
+    description: serviceTimesContent.services[1]?.description ?? "",
   },
   {
     icon: MapPin,
-    title: "In Person & Online",
-    time: "Every Week",
-    description: "Join us at the chapel or stream the service live from home.",
+    title: serviceTimesContent.services[2]?.title ?? "",
+    time: serviceTimesContent.services[2]?.time ?? "",
+    description: serviceTimesContent.services[2]?.description ?? "",
   },
-]
+];
 
 export function ServiceTimes() {
+  if (!serviceTimesContent.enabled) {
+    return null;
+  }
+
   return (
     <section id="services" className="bg-secondary py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
-            Gather With Us
+            {serviceTimesContent.eyebrow}
           </p>
           <h2 className="mt-3 text-balance font-serif text-3xl font-semibold text-foreground sm:text-4xl">
-            Service Times
+            {serviceTimesContent.heading}
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            Come as you are. Our doors open early so you can grab a coffee and
-            settle in before worship begins.
+            {serviceTimesContent.intro}
           </p>
         </div>
 
@@ -50,7 +54,9 @@ export function ServiceTimes() {
               <h3 className="mt-5 font-serif text-xl font-semibold text-foreground">
                 {service.title}
               </h3>
-              <p className="mt-1 text-lg font-medium text-primary">{service.time}</p>
+              <p className="mt-1 text-lg font-medium text-primary">
+                {service.time}
+              </p>
               <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
                 {service.description}
               </p>
@@ -59,5 +65,5 @@ export function ServiceTimes() {
         </div>
       </div>
     </section>
-  )
+  );
 }

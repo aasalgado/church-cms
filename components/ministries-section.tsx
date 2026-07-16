@@ -1,52 +1,56 @@
-import { Baby, BookOpen, HandHeart, Heart, Music, Users } from "lucide-react"
+import { Baby, BookOpen, HandHeart, Heart, Music, Users } from "lucide-react";
+import { ministriesContent } from "@/content/home-content";
 
 const ministries = [
   {
     icon: Baby,
-    title: "Kids & Nursery",
-    description: "A safe, joyful space where children learn and grow in faith.",
+    title: ministriesContent.ministries[0]?.title ?? "",
+    description: ministriesContent.ministries[0]?.description ?? "",
   },
   {
     icon: Users,
-    title: "Youth Group",
-    description: "Friendship, fun, and faith for students in grades 6–12.",
+    title: ministriesContent.ministries[1]?.title ?? "",
+    description: ministriesContent.ministries[1]?.description ?? "",
   },
   {
     icon: BookOpen,
-    title: "Small Groups",
-    description: "Connect deeply through weekly gatherings in homes near you.",
+    title: ministriesContent.ministries[2]?.title ?? "",
+    description: ministriesContent.ministries[2]?.description ?? "",
   },
   {
     icon: Music,
-    title: "Worship & Arts",
-    description: "Use your gifts in music, song, and creative expression.",
+    title: ministriesContent.ministries[3]?.title ?? "",
+    description: ministriesContent.ministries[3]?.description ?? "",
   },
   {
     icon: HandHeart,
-    title: "Outreach & Service",
-    description: "Love our neighbors by serving the city and those in need.",
+    title: ministriesContent.ministries[4]?.title ?? "",
+    description: ministriesContent.ministries[4]?.description ?? "",
   },
   {
     icon: Heart,
-    title: "Care & Prayer",
-    description: "Walk through life's seasons supported in prayer and care.",
+    title: ministriesContent.ministries[5]?.title ?? "",
+    description: ministriesContent.ministries[5]?.description ?? "",
   },
-]
+];
 
 export function MinistriesSection() {
+  if (!ministriesContent.enabled) {
+    return null;
+  }
+
   return (
     <section id="ministries" className="bg-muted py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
-            Get Involved
+            {ministriesContent.eyebrow}
           </p>
           <h2 className="mt-3 text-balance font-serif text-3xl font-semibold text-foreground sm:text-4xl">
-            Ministries For Every Season of Life
+            {ministriesContent.heading}
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            There&apos;s a place for you to belong, grow, and make a difference.
-            Explore the many ways to connect at Grace Hollow.
+            {ministriesContent.intro}
           </p>
         </div>
 
@@ -70,5 +74,5 @@ export function MinistriesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
