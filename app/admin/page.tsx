@@ -1,19 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 import { AnnouncementBanner } from "@/components/announcement-banner";
 import { AnnouncementEditor } from "@/components/admin/announcement-editor";
 import { HeroEditor } from "@/components/admin/hero-editor";
 import { HeroSection } from "@/components/hero-section";
 import { announcementContent, heroContent } from "@/content/home-content";
 
+type AdminSectionId = "announcement" | "hero";
+
+interface AdminSectionConfig {
+  id: AdminSectionId;
+  label: string;
+  preview: ReactNode;
+  editor: ReactNode;
+}
+
 export default function AdminPage() {
-  const [activeSection, setActiveSection] = useState<"announcement" | "hero">(
-    "announcement",
-  );
+  const [activeSection, setActiveSection] =
+    useState<AdminSectionId>("announcement");
   const [announcementDraft, setAnnouncementDraft] =
     useState(announcementContent);
   const [heroDraft, setHeroDraft] = useState(heroContent);
+
+  const sections: AdminSectionConfig[] = [
+    {
+      id: "announcement",
+      label: "Announcement",
+      preview: <AnnouncementBanner content={announcementDraft} />,
+      editor: (
+        <AnnouncementEditor
+          value={announcementDraft}
+          onChange={setAnnouncementDraft}
+        />
+      ),
+    },
+    {
+      id: "hero",
+      label: "Hero",
+      preview: <HeroSection content={heroDraft} />,
+      editor: <HeroEditor value={heroDraft} onChange={setHeroDraft} />,
+    },
+  ];
+
+  const selectedSection =
+    sections.find((section) => section.id === activeSection) ?? sections[0];
 
   return (
     <div className="min-h-screen bg-background px-4 py-10 text-foreground">
@@ -30,28 +61,20 @@ export default function AdminPage() {
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => setActiveSection("announcement")}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-              activeSection === "announcement"
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted text-muted-foreground"
-            }`}
-          >
-            Announcement
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveSection("hero")}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-              activeSection === "hero"
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted text-muted-foreground"
-            }`}
-          >
-            Hero
-          </button>
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              type="button"
+              onClick={() => setActiveSection(section.id)}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                activeSection === section.id
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground"
+              }`}
+            >
+              {section.label}
+            </button>
+          ))}
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
@@ -59,23 +82,12 @@ export default function AdminPage() {
             <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
               <h2 className="text-lg font-semibold">Live preview</h2>
               <div className="mt-4 overflow-hidden rounded-md border border-border">
-                {activeSection === "announcement" ? (
-                  <AnnouncementBanner content={announcementDraft} />
-                ) : (
-                  <HeroSection content={heroDraft} />
-                )}
+                {selectedSection.preview}
               </div>
             </div>
           </div>
 
-          {activeSection === "announcement" ? (
-            <AnnouncementEditor
-              value={announcementDraft}
-              onChange={setAnnouncementDraft}
-            />
-          ) : (
-            <HeroEditor value={heroDraft} onChange={setHeroDraft} />
-          )}
+          {selectedSection.editor}
         </div>
       </div>
     </div>
