@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/site-footer";
 import {
   announcementContent,
   heroContent,
+  ministriesContent,
   welcomeMessageContent,
 } from "@/content/home-content";
 
@@ -22,7 +23,7 @@ export default function Page() {
         <HeroSection content={heroContent} />
         <ServiceTimes />
         <WelcomeMessage content={welcomeMessageContent} />
-        <MinistriesSection />
+        <MinistriesSection content={ministriesContent} />
         <PastorMessage />
         <LocationContact />
       </main>
