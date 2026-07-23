@@ -7,7 +7,11 @@ import { MinistriesSection } from "@/components/ministries-section";
 import { PastorMessage } from "@/components/pastor-message";
 import { LocationContact } from "@/components/location-contact";
 import { SiteFooter } from "@/components/site-footer";
-import { announcementContent, heroContent } from "@/content/home-content";
+import {
+  announcementContent,
+  heroContent,
+  welcomeMessageContent,
+} from "@/content/home-content";
 
 export default function Page() {
   return (
@@ -17,7 +21,7 @@ export default function Page() {
       <main>
         <HeroSection content={heroContent} />
         <ServiceTimes />
-        <WelcomeMessage />
+        <WelcomeMessage content={welcomeMessageContent} />
         <MinistriesSection />
         <PastorMessage />
         <LocationContact />

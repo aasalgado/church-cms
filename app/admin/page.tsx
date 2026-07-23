@@ -4,10 +4,16 @@ import { type ReactNode, useState } from "react";
 import { AnnouncementBanner } from "@/components/announcement-banner";
 import { AnnouncementEditor } from "@/components/admin/announcement-editor";
 import { HeroEditor } from "@/components/admin/hero-editor";
+import { WelcomeEditor } from "@/components/admin/welcome-editor";
 import { HeroSection } from "@/components/hero-section";
-import { announcementContent, heroContent } from "@/content/home-content";
+import { WelcomeMessage } from "@/components/welcome-message";
+import {
+  announcementContent,
+  heroContent,
+  welcomeMessageContent,
+} from "@/content/home-content";
 
-type AdminSectionId = "announcement" | "hero";
+type AdminSectionId = "announcement" | "hero" | "welcome";
 
 interface AdminSectionConfig {
   id: AdminSectionId;
@@ -22,6 +28,7 @@ export default function AdminPage() {
   const [announcementDraft, setAnnouncementDraft] =
     useState(announcementContent);
   const [heroDraft, setHeroDraft] = useState(heroContent);
+  const [welcomeDraft, setWelcomeDraft] = useState(welcomeMessageContent);
 
   const sections: AdminSectionConfig[] = [
     {
@@ -40,6 +47,12 @@ export default function AdminPage() {
       label: "Hero",
       preview: <HeroSection content={heroDraft} />,
       editor: <HeroEditor value={heroDraft} onChange={setHeroDraft} />,
+    },
+    {
+      id: "welcome",
+      label: "Welcome",
+      preview: <WelcomeMessage content={welcomeDraft} />,
+      editor: <WelcomeEditor value={welcomeDraft} onChange={setWelcomeDraft} />,
     },
   ];
 
