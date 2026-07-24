@@ -5,18 +5,26 @@ import { AnnouncementBanner } from "@/components/announcement-banner";
 import { AnnouncementEditor } from "@/components/admin/announcement-editor";
 import { HeroEditor } from "@/components/admin/hero-editor";
 import { MinistriesEditor } from "@/components/admin/ministries-editor";
+import { PastorMessageEditor } from "@/components/admin/pastor-message-editor";
 import { WelcomeEditor } from "@/components/admin/welcome-editor";
 import { HeroSection } from "@/components/hero-section";
 import { MinistriesSection } from "@/components/ministries-section";
+import { PastorMessage } from "@/components/pastor-message";
 import { WelcomeMessage } from "@/components/welcome-message";
 import {
   announcementContent,
   heroContent,
   ministriesContent,
+  pastorMessageContent,
   welcomeMessageContent,
 } from "@/content/home-content";
 
-type AdminSectionId = "announcement" | "hero" | "welcome" | "ministries";
+type AdminSectionId =
+  | "announcement"
+  | "hero"
+  | "welcome"
+  | "ministries"
+  | "pastor";
 
 interface AdminSectionConfig {
   id: AdminSectionId;
@@ -33,6 +41,7 @@ export default function AdminPage() {
   const [heroDraft, setHeroDraft] = useState(heroContent);
   const [welcomeDraft, setWelcomeDraft] = useState(welcomeMessageContent);
   const [ministriesDraft, setMinistriesDraft] = useState(ministriesContent);
+  const [pastorDraft, setPastorDraft] = useState(pastorMessageContent);
 
   const sections: AdminSectionConfig[] = [
     {
@@ -67,6 +76,14 @@ export default function AdminPage() {
           value={ministriesDraft}
           onChange={setMinistriesDraft}
         />
+      ),
+    },
+    {
+      id: "pastor",
+      label: "Pastor Message",
+      preview: <PastorMessage content={pastorDraft} />,
+      editor: (
+        <PastorMessageEditor value={pastorDraft} onChange={setPastorDraft} />
       ),
     },
   ];

@@ -11,6 +11,7 @@ import {
   announcementContent,
   heroContent,
   ministriesContent,
+  pastorMessageContent,
   welcomeMessageContent,
 } from "@/content/home-content";
 
@@ -24,7 +25,7 @@ export default function Page() {
         <ServiceTimes />
         <WelcomeMessage content={welcomeMessageContent} />
         <MinistriesSection content={ministriesContent} />
-        <PastorMessage />
+        <PastorMessage content={pastorMessageContent} />
         <LocationContact />
       </main>
       <SiteFooter />
