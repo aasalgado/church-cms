@@ -4,11 +4,13 @@ import { type ReactNode, useState } from "react";
 import { AnnouncementBanner } from "@/components/announcement-banner";
 import { AnnouncementEditor } from "@/components/admin/announcement-editor";
 import { HeroEditor } from "@/components/admin/hero-editor";
+import { LocationContactEditor } from "@/components/admin/location-contact-editor";
 import { MinistriesEditor } from "@/components/admin/ministries-editor";
 import { PastorMessageEditor } from "@/components/admin/pastor-message-editor";
 import { ServiceTimesEditor } from "@/components/admin/service-times-editor";
 import { WelcomeEditor } from "@/components/admin/welcome-editor";
 import { HeroSection } from "@/components/hero-section";
+import { LocationContact } from "@/components/location-contact";
 import { MinistriesSection } from "@/components/ministries-section";
 import { PastorMessage } from "@/components/pastor-message";
 import { ServiceTimes } from "@/components/service-times";
@@ -16,6 +18,7 @@ import { WelcomeMessage } from "@/components/welcome-message";
 import {
   announcementContent,
   heroContent,
+  locationContactContent,
   ministriesContent,
   pastorMessageContent,
   serviceTimesContent,
@@ -28,7 +31,8 @@ type AdminSectionId =
   | "service-times"
   | "welcome"
   | "ministries"
-  | "pastor";
+  | "pastor"
+  | "location-contact";
 
 interface AdminSectionConfig {
   id: AdminSectionId;
@@ -48,6 +52,8 @@ export default function AdminPage() {
   const [welcomeDraft, setWelcomeDraft] = useState(welcomeMessageContent);
   const [ministriesDraft, setMinistriesDraft] = useState(ministriesContent);
   const [pastorDraft, setPastorDraft] = useState(pastorMessageContent);
+  const [locationContactDraft, setLocationContactDraft] =
+    useState(locationContactContent);
 
   const sections: AdminSectionConfig[] = [
     {
@@ -101,6 +107,17 @@ export default function AdminPage() {
       preview: <PastorMessage content={pastorDraft} />,
       editor: (
         <PastorMessageEditor value={pastorDraft} onChange={setPastorDraft} />
+      ),
+    },
+    {
+      id: "location-contact",
+      label: "Location & Contact",
+      preview: <LocationContact content={locationContactDraft} />,
+      editor: (
+        <LocationContactEditor
+          value={locationContactDraft}
+          onChange={setLocationContactDraft}
+        />
       ),
     },
   ];
