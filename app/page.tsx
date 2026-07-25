@@ -12,6 +12,7 @@ import {
   heroContent,
   ministriesContent,
   pastorMessageContent,
+  serviceTimesContent,
   welcomeMessageContent,
 } from "@/content/home-content";
 
@@ -22,7 +23,7 @@ export default function Page() {
       <SiteNavbar />
       <main>
         <HeroSection content={heroContent} />
-        <ServiceTimes />
+        <ServiceTimes content={serviceTimesContent} />
         <WelcomeMessage content={welcomeMessageContent} />
         <MinistriesSection content={ministriesContent} />
         <PastorMessage content={pastorMessageContent} />

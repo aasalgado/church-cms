@@ -6,22 +6,26 @@ import { AnnouncementEditor } from "@/components/admin/announcement-editor";
 import { HeroEditor } from "@/components/admin/hero-editor";
 import { MinistriesEditor } from "@/components/admin/ministries-editor";
 import { PastorMessageEditor } from "@/components/admin/pastor-message-editor";
+import { ServiceTimesEditor } from "@/components/admin/service-times-editor";
 import { WelcomeEditor } from "@/components/admin/welcome-editor";
 import { HeroSection } from "@/components/hero-section";
 import { MinistriesSection } from "@/components/ministries-section";
 import { PastorMessage } from "@/components/pastor-message";
+import { ServiceTimes } from "@/components/service-times";
 import { WelcomeMessage } from "@/components/welcome-message";
 import {
   announcementContent,
   heroContent,
   ministriesContent,
   pastorMessageContent,
+  serviceTimesContent,
   welcomeMessageContent,
 } from "@/content/home-content";
 
 type AdminSectionId =
   | "announcement"
   | "hero"
+  | "service-times"
   | "welcome"
   | "ministries"
   | "pastor";
@@ -39,6 +43,8 @@ export default function AdminPage() {
   const [announcementDraft, setAnnouncementDraft] =
     useState(announcementContent);
   const [heroDraft, setHeroDraft] = useState(heroContent);
+  const [serviceTimesDraft, setServiceTimesDraft] =
+    useState(serviceTimesContent);
   const [welcomeDraft, setWelcomeDraft] = useState(welcomeMessageContent);
   const [ministriesDraft, setMinistriesDraft] = useState(ministriesContent);
   const [pastorDraft, setPastorDraft] = useState(pastorMessageContent);
@@ -60,6 +66,17 @@ export default function AdminPage() {
       label: "Hero",
       preview: <HeroSection content={heroDraft} />,
       editor: <HeroEditor value={heroDraft} onChange={setHeroDraft} />,
+    },
+    {
+      id: "service-times",
+      label: "Service Times",
+      preview: <ServiceTimes content={serviceTimesDraft} />,
+      editor: (
+        <ServiceTimesEditor
+          value={serviceTimesDraft}
+          onChange={setServiceTimesDraft}
+        />
+      ),
     },
     {
       id: "welcome",
