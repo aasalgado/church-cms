@@ -1,4 +1,4 @@
-export interface NavLinkContent {
+export interface LinkContent {
   label: string;
   href: string;
 }
@@ -13,14 +13,14 @@ export interface SiteCtaContent {
   href: string;
 }
 
-export interface SiteFooterLinkContent {
+export interface LinkContent {
   label: string;
   href: string;
 }
 
 export interface SiteFooterSectionContent {
   heading: string;
-  links: SiteFooterLinkContent[];
+  links: LinkContent[];
 }
 
 export interface SiteFooterContactContent {
@@ -38,7 +38,7 @@ export interface SiteFooterContent {
 
 export interface SiteContent {
   brand: SiteBrandContent;
-  navigation: NavLinkContent[];
+  navigation: LinkContent[];
   primaryCta: SiteCtaContent;
 }
 

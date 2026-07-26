@@ -61,8 +61,9 @@ export default function AdminPage() {
   const [welcomeDraft, setWelcomeDraft] = useState(welcomeMessageContent);
   const [ministriesDraft, setMinistriesDraft] = useState(ministriesContent);
   const [pastorDraft, setPastorDraft] = useState(pastorMessageContent);
-  const [locationContactDraft, setLocationContactDraft] =
-    useState(locationContactContent);
+  const [locationContactDraft, setLocationContactDraft] = useState(
+    locationContactContent,
+  );
 
   const sections: AdminSectionConfig[] = [
     {
@@ -159,8 +160,8 @@ export default function AdminPage() {
           </p>
           <h1 className="text-3xl font-semibold">Content editor</h1>
           <p className="max-w-2xl text-sm text-muted-foreground">
-            Switch between announcement and hero content and preview the changes
-            locally.
+            Select a section to edit its content and preview changes in real
+            time.
           </p>
         </div>
 

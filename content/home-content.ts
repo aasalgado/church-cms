@@ -1,4 +1,4 @@
-export interface HeroCta {
+export interface CtaContent {
   enabled: boolean;
   label: string;
   href: string;
@@ -64,7 +64,7 @@ export interface PastorMessageContent {
   paragraphs: string[];
   name: string;
   title: string;
-  cta: HeroCta;
+  cta: CtaContent;
 }
 
 export interface ContactDetail {
@@ -78,7 +78,7 @@ export interface LocationContactContent {
   heading: string;
   intro: string;
   details: ContactDetail[];
-  button: HeroCta;
+  button: CtaContent;
 }
 
 export interface HeroContent {
@@ -90,8 +90,8 @@ export interface HeroContent {
   preHeading: string;
   headline: string;
   copy: string;
-  primaryCta: HeroCta;
-  secondaryCta: HeroCta;
+  primaryCta: CtaContent;
+  secondaryCta: CtaContent;
 }
 
 export const announcementContent: AnnouncementContent = {

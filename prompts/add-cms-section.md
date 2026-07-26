@@ -5,23 +5,37 @@ Before making changes, inspect the existing implementations for:
 - AnnouncementEditor
 - HeroEditor
 - WelcomeEditor
+- SiteNavbarEditor
+- SiteFooterEditor
 - the existing presentation component for [SECTION_NAME]
+- the public homepage
 - the admin section registry
 - the typed content models in `content/home-content.ts`
+- the typed content models in `content/site-content.ts`
+
+Determine whether the section contains:
+
+- page-specific content, which belongs in `content/home-content.ts`
+- site-wide content, which belongs in `content/site-content.ts`
+
+Use the content file specified in the section details below.
+
+Do not create a new content file unless there is a clear architectural reason.
 
 Follow the existing architecture and reuse the established editing pattern. Do not redesign or broadly refactor the current admin implementation.
 
-Section details
+## Section details
 
 - Section label: [SECTION_NAME]
 - Presentation component: [PRESENTATION_COMPONENT]
 - Content type: [CONTENT_TYPE]
 - Static content object: [CONTENT_OBJECT]
+- Content file: [CONTENT_FILE]
 - New editor file: `components/admin/[EDITOR_FILE]`
 
-Requirements
+## Requirements
 
-1. Add a new local draft state in the admin page.
+### 1. Add a new local draft state in the admin page
 
 Use a name based on the existing content object and initialize it from `[CONTENT_OBJECT]`.
 
@@ -33,7 +47,9 @@ const [sectionDraft, setSectionDraft] = useState<ContentType>(contentObject);
 
 Use the actual section-specific names rather than the generic names above.
 
-2. Create a new controlled editor component at:
+### 2. Create a new controlled editor component
+
+Create the editor at:
 
 `components/admin/[EDITOR_FILE]`
 
@@ -55,8 +71,16 @@ The editor must:
 - update objects and arrays immutably
 - use clear TypeScript types
 - avoid `any`
+- preserve input focus while editing
 
-3. Refactor `[PRESENTATION_COMPONENT]` into a pure presentational component if it is not already one.
+For arrays rendered with `.map()`:
+
+- do not use editable values such as labels, titles, text, or `href` values as React keys
+- use an existing permanent ID when one is available
+- for a fixed list that cannot be added to, removed from, or reordered, using the array index is acceptable
+- do not modify the content model solely to add IDs unless the feature requires editable list operations
+
+### 3. Refactor `[PRESENTATION_COMPONENT]` into a pure presentation component if needed
 
 It must accept a required prop equivalent to:
 
@@ -74,7 +98,7 @@ Do not import `[CONTENT_OBJECT]` inside `[PRESENTATION_COMPONENT]`.
 
 The component should render only the content passed through its required `content` prop.
 
-4. Update the public homepage.
+### 4. Update the public homepage
 
 The public homepage must explicitly pass the static content object:
 
@@ -84,7 +108,7 @@ The public homepage must explicitly pass the static content object:
 
 The public homepage must not consume or depend on admin draft state.
 
-5. Update the existing admin page.
+### 5. Update the existing admin page
 
 - Add the new section-specific draft state.
 - Add a new `[SECTION_NAME]` entry to the existing typed section registry.
@@ -94,11 +118,11 @@ The public homepage must not consume or depend on admin draft state.
 - Preserve the existing section-switching behavior.
 - Do not modify the overall admin layout.
 
-6. Editor fields
+### 6. Add editor fields
 
 Expose all ordinary administrator-editable fields already defined in the existing `[CONTENT_TYPE]` model.
 
-Do not add new content fields unless required to preserve the current model.
+Do not add new content fields unless required to preserve content currently rendered by the presentation component.
 
 Do not add:
 
@@ -112,7 +136,7 @@ Do not add:
 
 For nested objects or arrays, provide practical controls that match the existing model and update them immutably.
 
-Architecture constraints
+## Architecture constraints
 
 - Keep one `/admin` page.
 - Keep the existing typed section registry.
@@ -120,39 +144,55 @@ Architecture constraints
 - Do not combine all drafts into one object.
 - Do not add React Context.
 - Do not add reducers.
-- Do not add localStorage.
+- Do not add `localStorage`.
 - Do not add persistence.
 - Do not add authentication.
 - Do not add APIs.
 - Do not add AWS services.
 - Do not add a database.
 - Do not modify unrelated components.
-- Preserve the existing public website appearance.
+- Preserve the existing public website appearance and behavior.
+- Keep the public homepage independent from admin draft state.
 
-Implementation quality
+## Implementation quality
 
-- Follow the same pattern already established for Announcement, Hero, and Welcome.
+- Follow the same architecture established across the existing CMS-enabled sections.
 - Keep editor components controlled by the admin page.
 - Reuse the existing presentation component for the live preview.
 - Keep the implementation small and consistent with the current architecture.
 - Avoid unnecessary abstractions.
 - Avoid unrelated cleanup or formatting changes.
+- Preserve existing navigation and responsive behavior where applicable.
+- Do not duplicate an existing shared content type when the same general-purpose type already represents the required data.
 
-Validation
+## Validation
 
 After implementation:
 
-1. Run `npm run build`.
+1. Run:
+
+```bash
+npm run build
+```
 
 2. Fix any TypeScript or build errors caused by the changes.
 
-3. Summarize:
+3. Manually verify that:
+
+- editor inputs retain focus while typing
+- draft changes appear immediately in the live preview
+- the public homepage still renders from static content
+- existing responsive and interactive behavior still works
+
+4. Summarize:
 
 - every file created
 - every file modified
+- which content file was used and why
 - how `[SECTION_NAME]` was integrated into the existing registry
 - how the public homepage remains separate from admin draft state
 - how nested content was updated, if applicable
+- how React keys were handled for editable arrays, if applicable
 - any assumptions made based on the existing `[CONTENT_TYPE]` model
 
 Do not expand the scope beyond the requirements above.
