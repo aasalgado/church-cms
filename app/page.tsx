@@ -16,12 +16,13 @@ import {
   serviceTimesContent,
   welcomeMessageContent,
 } from "@/content/home-content";
+import { siteContent } from "@/content/site-content"
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-background">
       <AnnouncementBanner content={announcementContent} />
-      <SiteNavbar />
+      <SiteNavbar content={siteContent} />
       <main>
         <HeroSection content={heroContent} />
         <ServiceTimes content={serviceTimesContent} />

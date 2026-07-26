@@ -8,12 +8,14 @@ import { LocationContactEditor } from "@/components/admin/location-contact-edito
 import { MinistriesEditor } from "@/components/admin/ministries-editor";
 import { PastorMessageEditor } from "@/components/admin/pastor-message-editor";
 import { ServiceTimesEditor } from "@/components/admin/service-times-editor";
+import { SiteNavbarEditor } from "@/components/admin/site-navbar-editor";
 import { WelcomeEditor } from "@/components/admin/welcome-editor";
 import { HeroSection } from "@/components/hero-section";
 import { LocationContact } from "@/components/location-contact";
 import { MinistriesSection } from "@/components/ministries-section";
 import { PastorMessage } from "@/components/pastor-message";
 import { ServiceTimes } from "@/components/service-times";
+import { SiteNavbar } from "@/components/site-navbar";
 import { WelcomeMessage } from "@/components/welcome-message";
 import {
   announcementContent,
@@ -24,6 +26,7 @@ import {
   serviceTimesContent,
   welcomeMessageContent,
 } from "@/content/home-content";
+import { siteContent } from "@/content/site-content";
 
 type AdminSectionId =
   | "announcement"
@@ -32,7 +35,8 @@ type AdminSectionId =
   | "welcome"
   | "ministries"
   | "pastor"
-  | "location-contact";
+  | "location-contact"
+  | "navbar";
 
 interface AdminSectionConfig {
   id: AdminSectionId;
@@ -44,6 +48,7 @@ interface AdminSectionConfig {
 export default function AdminPage() {
   const [activeSection, setActiveSection] =
     useState<AdminSectionId>("announcement");
+  const [navbarDraft, setNavbarDraft] = useState(siteContent);
   const [announcementDraft, setAnnouncementDraft] =
     useState(announcementContent);
   const [heroDraft, setHeroDraft] = useState(heroContent);
@@ -56,6 +61,14 @@ export default function AdminPage() {
     useState(locationContactContent);
 
   const sections: AdminSectionConfig[] = [
+    {
+      id: "navbar",
+      label: "Navbar",
+      preview: <SiteNavbar content={navbarDraft} />,
+      editor: (
+        <SiteNavbarEditor value={navbarDraft} onChange={setNavbarDraft} />
+      ),
+    },
     {
       id: "announcement",
       label: "Announcement",
