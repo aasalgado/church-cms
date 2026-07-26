@@ -16,7 +16,7 @@ import {
   serviceTimesContent,
   welcomeMessageContent,
 } from "@/content/home-content";
-import { siteContent } from "@/content/site-content"
+import { siteContent, siteFooterContent } from "@/content/site-content"
 
 export default function Page() {
   return (
@@ -31,7 +31,7 @@ export default function Page() {
         <PastorMessage content={pastorMessageContent} />
         <LocationContact content={locationContactContent} />
       </main>
-      <SiteFooter />
+      <SiteFooter content={siteFooterContent} />
     </div>
   );
 }

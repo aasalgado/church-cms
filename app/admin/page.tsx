@@ -9,6 +9,7 @@ import { MinistriesEditor } from "@/components/admin/ministries-editor";
 import { PastorMessageEditor } from "@/components/admin/pastor-message-editor";
 import { ServiceTimesEditor } from "@/components/admin/service-times-editor";
 import { SiteNavbarEditor } from "@/components/admin/site-navbar-editor";
+import { SiteFooterEditor } from "@/components/admin/site-footer-editor";
 import { WelcomeEditor } from "@/components/admin/welcome-editor";
 import { HeroSection } from "@/components/hero-section";
 import { LocationContact } from "@/components/location-contact";
@@ -16,6 +17,7 @@ import { MinistriesSection } from "@/components/ministries-section";
 import { PastorMessage } from "@/components/pastor-message";
 import { ServiceTimes } from "@/components/service-times";
 import { SiteNavbar } from "@/components/site-navbar";
+import { SiteFooter } from "@/components/site-footer";
 import { WelcomeMessage } from "@/components/welcome-message";
 import {
   announcementContent,
@@ -26,7 +28,7 @@ import {
   serviceTimesContent,
   welcomeMessageContent,
 } from "@/content/home-content";
-import { siteContent } from "@/content/site-content";
+import { siteContent, siteFooterContent } from "@/content/site-content";
 
 type AdminSectionId =
   | "announcement"
@@ -36,7 +38,8 @@ type AdminSectionId =
   | "ministries"
   | "pastor"
   | "location-contact"
-  | "navbar";
+  | "navbar"
+  | "footer";
 
 interface AdminSectionConfig {
   id: AdminSectionId;
@@ -48,6 +51,7 @@ interface AdminSectionConfig {
 export default function AdminPage() {
   const [activeSection, setActiveSection] =
     useState<AdminSectionId>("announcement");
+  const [footerDraft, setFooterDraft] = useState(siteFooterContent);
   const [navbarDraft, setNavbarDraft] = useState(siteContent);
   const [announcementDraft, setAnnouncementDraft] =
     useState(announcementContent);
@@ -131,6 +135,14 @@ export default function AdminPage() {
           value={locationContactDraft}
           onChange={setLocationContactDraft}
         />
+      ),
+    },
+    {
+      id: "footer",
+      label: "Footer",
+      preview: <SiteFooter content={footerDraft} />,
+      editor: (
+        <SiteFooterEditor value={footerDraft} onChange={setFooterDraft} />
       ),
     },
   ];

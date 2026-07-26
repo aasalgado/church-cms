@@ -1,7 +1,11 @@
 import { Church } from "lucide-react";
-import { siteFooterContent } from "@/content/site-content";
+import type { SiteFooterContent } from "@/content/site-content";
 
-export function SiteFooter() {
+interface SiteFooterProps {
+  content: SiteFooterContent;
+}
+
+export function SiteFooter({ content }: SiteFooterProps) {
   return (
     <footer className="bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
@@ -12,20 +16,20 @@ export function SiteFooter() {
                 <Church className="size-5" aria-hidden="true" />
               </span>
               <span className="font-serif text-xl font-semibold">
-                {siteFooterContent.brand.name}
+                {content.brand.name}
               </span>
             </div>
             <p className="mt-4 max-w-xs text-pretty leading-relaxed text-background/70">
-              {siteFooterContent.description}
+              {content.description}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wide text-background/90">
-              {siteFooterContent.explore.heading}
+              {content.explore.heading}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-background/70">
-              {siteFooterContent.explore.links.map((link) => (
+              {content.explore.links.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
@@ -40,10 +44,10 @@ export function SiteFooter() {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wide text-background/90">
-              {siteFooterContent.connect.heading}
+              {content.connect.heading}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-background/70">
-              {siteFooterContent.connect.items.map((item) => (
+              {content.connect.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
@@ -52,7 +56,7 @@ export function SiteFooter() {
 
         <div className="mt-12 border-t border-background/15 pt-6 text-center text-sm text-background/60">
           <p>
-            &copy; {new Date().getFullYear()} {siteFooterContent.copyright}
+            &copy; {new Date().getFullYear()} {content.copyright}
           </p>
         </div>
       </div>
