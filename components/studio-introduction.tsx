@@ -1,10 +1,10 @@
-import type { WelcomeMessageContent } from "@/content/home-content";
+import type { StudioIntroductionContent } from "@/content/home-content";
 
-interface WelcomeMessageProps {
-  content: WelcomeMessageContent;
+interface StudioIntroductionProps {
+  content: StudioIntroductionContent;
 }
 
-export function WelcomeMessage({ content }: WelcomeMessageProps) {
+export function StudioIntroduction({ content }: StudioIntroductionProps) {
   if (!content.enabled) {
     return null;
   }

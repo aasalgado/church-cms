@@ -1,42 +1,42 @@
 "use client";
 
 import { type ReactNode, useState } from "react";
-import { AnnouncementBanner } from "@/components/announcement-banner";
-import { AnnouncementEditor } from "@/components/admin/announcement-editor";
+import { EventBanner } from "@/components/event-banner";
+import { EventBannerEditor } from "@/components/admin/event-banner-editor";
 import { HeroEditor } from "@/components/admin/hero-editor";
 import { LocationContactEditor } from "@/components/admin/location-contact-editor";
-import { MinistriesEditor } from "@/components/admin/ministries-editor";
-import { PastorMessageEditor } from "@/components/admin/pastor-message-editor";
-import { ServiceTimesEditor } from "@/components/admin/service-times-editor";
+import { DanceStylesEditor } from "@/components/admin/dance-styles-editor";
+import { InstructorSectionEditor } from "@/components/admin/instructor-section-editor";
+import { ClassScheduleEditor } from "@/components/admin/class-schedule-editor";
 import { SiteNavbarEditor } from "@/components/admin/site-navbar-editor";
 import { SiteFooterEditor } from "@/components/admin/site-footer-editor";
-import { WelcomeEditor } from "@/components/admin/welcome-editor";
+import { StudioIntroductionEditor } from "@/components/admin/studio-introduction-editor";
 import { HeroSection } from "@/components/hero-section";
 import { LocationContact } from "@/components/location-contact";
-import { MinistriesSection } from "@/components/ministries-section";
-import { PastorMessage } from "@/components/pastor-message";
-import { ServiceTimes } from "@/components/service-times";
+import { DanceStyles } from "@/components/dance-styles";
+import { InstructorSection } from "@/components/instructor-section";
+import { ClassSchedule } from "@/components/class-schedule";
 import { SiteNavbar } from "@/components/site-navbar";
 import { SiteFooter } from "@/components/site-footer";
-import { WelcomeMessage } from "@/components/welcome-message";
+import { StudioIntroduction } from "@/components/studio-introduction";
 import {
-  announcementContent,
+  eventBannerContent,
   heroContent,
   locationContactContent,
-  ministriesContent,
-  pastorMessageContent,
-  serviceTimesContent,
-  welcomeMessageContent,
+  danceStylesContent,
+  instructorContent,
+  classScheduleContent,
+  studioIntroductionContent,
 } from "@/content/home-content";
 import { siteContent, siteFooterContent } from "@/content/site-content";
 
 type AdminSectionId =
-  | "announcement"
+  | "event-banner"
   | "hero"
-  | "service-times"
-  | "welcome"
-  | "ministries"
-  | "pastor"
+  | "class-schedule"
+  | "studio-introduction"
+  | "dance-styles"
+  | "instructor"
   | "location-contact"
   | "navbar"
   | "footer";
@@ -50,17 +50,17 @@ interface AdminSectionConfig {
 
 export default function AdminPage() {
   const [activeSection, setActiveSection] =
-    useState<AdminSectionId>("announcement");
+    useState<AdminSectionId>("event-banner");
   const [footerDraft, setFooterDraft] = useState(siteFooterContent);
   const [navbarDraft, setNavbarDraft] = useState(siteContent);
-  const [announcementDraft, setAnnouncementDraft] =
-    useState(announcementContent);
+  const [eventBannerDraft, setEventBannerDraft] = useState(eventBannerContent);
   const [heroDraft, setHeroDraft] = useState(heroContent);
-  const [serviceTimesDraft, setServiceTimesDraft] =
-    useState(serviceTimesContent);
-  const [welcomeDraft, setWelcomeDraft] = useState(welcomeMessageContent);
-  const [ministriesDraft, setMinistriesDraft] = useState(ministriesContent);
-  const [pastorDraft, setPastorDraft] = useState(pastorMessageContent);
+  const [classScheduleDraft, setClassScheduleDraft] =
+    useState(classScheduleContent);
+  const [studioIntroductionDraft, setStudioIntroductionDraft] =
+    useState(studioIntroductionContent);
+  const [danceStylesDraft, setDanceStylesDraft] = useState(danceStylesContent);
+  const [instructorDraft, setInstructorDraft] = useState(instructorContent);
   const [locationContactDraft, setLocationContactDraft] = useState(
     locationContactContent,
   );
@@ -75,13 +75,13 @@ export default function AdminPage() {
       ),
     },
     {
-      id: "announcement",
-      label: "Announcement",
-      preview: <AnnouncementBanner content={announcementDraft} />,
+      id: "event-banner",
+      label: "Event Banner",
+      preview: <EventBanner content={eventBannerDraft} />,
       editor: (
-        <AnnouncementEditor
-          value={announcementDraft}
-          onChange={setAnnouncementDraft}
+        <EventBannerEditor
+          value={eventBannerDraft}
+          onChange={setEventBannerDraft}
         />
       ),
     },
@@ -92,39 +92,47 @@ export default function AdminPage() {
       editor: <HeroEditor value={heroDraft} onChange={setHeroDraft} />,
     },
     {
-      id: "service-times",
-      label: "Service Times",
-      preview: <ServiceTimes content={serviceTimesDraft} />,
+      id: "class-schedule",
+      label: "Class Schedule",
+      preview: <ClassSchedule content={classScheduleDraft} />,
       editor: (
-        <ServiceTimesEditor
-          value={serviceTimesDraft}
-          onChange={setServiceTimesDraft}
+        <ClassScheduleEditor
+          value={classScheduleDraft}
+          onChange={setClassScheduleDraft}
         />
       ),
     },
     {
-      id: "welcome",
-      label: "Welcome",
-      preview: <WelcomeMessage content={welcomeDraft} />,
-      editor: <WelcomeEditor value={welcomeDraft} onChange={setWelcomeDraft} />,
-    },
-    {
-      id: "ministries",
-      label: "Ministries",
-      preview: <MinistriesSection content={ministriesDraft} />,
+      id: "studio-introduction",
+      label: "Studio Introduction",
+      preview: <StudioIntroduction content={studioIntroductionDraft} />,
       editor: (
-        <MinistriesEditor
-          value={ministriesDraft}
-          onChange={setMinistriesDraft}
+        <StudioIntroductionEditor
+          value={studioIntroductionDraft}
+          onChange={setStudioIntroductionDraft}
         />
       ),
     },
     {
-      id: "pastor",
-      label: "Pastor Message",
-      preview: <PastorMessage content={pastorDraft} />,
+      id: "dance-styles",
+      label: "Dance Styles",
+      preview: <DanceStyles content={danceStylesDraft} />,
       editor: (
-        <PastorMessageEditor value={pastorDraft} onChange={setPastorDraft} />
+        <DanceStylesEditor
+          value={danceStylesDraft}
+          onChange={setDanceStylesDraft}
+        />
+      ),
+    },
+    {
+      id: "instructor",
+      label: "Instructor",
+      preview: <InstructorSection content={instructorDraft} />,
+      editor: (
+        <InstructorSectionEditor
+          value={instructorDraft}
+          onChange={setInstructorDraft}
+        />
       ),
     },
     {

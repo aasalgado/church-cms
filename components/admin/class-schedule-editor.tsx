@@ -1,16 +1,16 @@
 "use client";
 
-import type { ServiceTimesContent } from "@/content/home-content";
+import type { ClassScheduleContent } from "@/content/home-content";
 
-interface ServiceTimesEditorProps {
-  value: ServiceTimesContent;
-  onChange: (next: ServiceTimesContent) => void;
+interface ClassScheduleEditorProps {
+  value: ClassScheduleContent;
+  onChange: (next: ClassScheduleContent) => void;
 }
 
-export function ServiceTimesEditor({
+export function ClassScheduleEditor({
   value,
   onChange,
-}: ServiceTimesEditorProps) {
+}: ClassScheduleEditorProps) {
   return (
     <div className="space-y-4 rounded-lg border border-border bg-card p-6 shadow-sm">
       <div className="space-y-2">
@@ -26,19 +26,19 @@ export function ServiceTimesEditor({
             }
             className="h-4 w-4 rounded border-border"
           />
-          <span>Enable service times section</span>
+          <span>Enable class schedule section</span>
         </label>
       </div>
 
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="service-times-eyebrow"
+          htmlFor="class-schedule-eyebrow"
         >
           Eyebrow
         </label>
         <input
-          id="service-times-eyebrow"
+          id="class-schedule-eyebrow"
           type="text"
           value={value.eyebrow}
           onChange={(event) =>
@@ -54,12 +54,12 @@ export function ServiceTimesEditor({
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="service-times-heading"
+          htmlFor="class-schedule-heading"
         >
           Heading
         </label>
         <input
-          id="service-times-heading"
+          id="class-schedule-heading"
           type="text"
           value={value.heading}
           onChange={(event) =>
@@ -75,12 +75,12 @@ export function ServiceTimesEditor({
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="service-times-intro"
+          htmlFor="class-schedule-intro"
         >
           Intro
         </label>
         <textarea
-          id="service-times-intro"
+          id="class-schedule-intro"
           value={value.intro}
           onChange={(event) =>
             onChange({
@@ -94,29 +94,27 @@ export function ServiceTimesEditor({
       </div>
 
       <div className="space-y-3">
-        {value.services.map((service, index) => (
+        {value.classes.map((item, index) => (
           <div
-            key={`${service.title}-${index}`}
+            key={`${item.title}-${index}`}
             className="rounded-md border border-border/60 p-4"
           >
             <div className="space-y-2">
               <label
                 className="text-sm font-medium text-foreground"
-                htmlFor={`service-times-title-${index}`}
+                htmlFor={`class-schedule-title-${index}`}
               >
-                Service title {index + 1}
+                Class title {index + 1}
               </label>
               <input
-                id={`service-times-title-${index}`}
+                id={`class-schedule-title-${index}`}
                 type="text"
-                value={service.title}
+                value={item.title}
                 onChange={(event) =>
                   onChange({
                     ...value,
-                    services: value.services.map((item, itemIndex) =>
-                      itemIndex === index
-                        ? { ...item, title: event.target.value }
-                        : item,
+                    classes: value.classes.map((c, i) =>
+                      i === index ? { ...c, title: event.target.value } : c,
                     ),
                   })
                 }
@@ -127,21 +125,19 @@ export function ServiceTimesEditor({
             <div className="mt-3 space-y-2">
               <label
                 className="text-sm font-medium text-foreground"
-                htmlFor={`service-times-time-${index}`}
+                htmlFor={`class-schedule-time-${index}`}
               >
                 Time {index + 1}
               </label>
               <input
-                id={`service-times-time-${index}`}
+                id={`class-schedule-time-${index}`}
                 type="text"
-                value={service.time}
+                value={item.time}
                 onChange={(event) =>
                   onChange({
                     ...value,
-                    services: value.services.map((item, itemIndex) =>
-                      itemIndex === index
-                        ? { ...item, time: event.target.value }
-                        : item,
+                    classes: value.classes.map((c, i) =>
+                      i === index ? { ...c, time: event.target.value } : c,
                     ),
                   })
                 }
@@ -152,20 +148,20 @@ export function ServiceTimesEditor({
             <div className="mt-3 space-y-2">
               <label
                 className="text-sm font-medium text-foreground"
-                htmlFor={`service-times-description-${index}`}
+                htmlFor={`class-schedule-description-${index}`}
               >
                 Description {index + 1}
               </label>
               <textarea
-                id={`service-times-description-${index}`}
-                value={service.description}
+                id={`class-schedule-description-${index}`}
+                value={item.description}
                 onChange={(event) =>
                   onChange({
                     ...value,
-                    services: value.services.map((item, itemIndex) =>
-                      itemIndex === index
-                        ? { ...item, description: event.target.value }
-                        : item,
+                    classes: value.classes.map((c, i) =>
+                      i === index
+                        ? { ...c, description: event.target.value }
+                        : c,
                     ),
                   })
                 }

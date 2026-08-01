@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import type { PastorMessageContent } from "@/content/home-content";
+import type { InstructorContent } from "@/content/home-content";
 
-interface PastorMessageProps {
-  content: PastorMessageContent;
+interface InstructorSectionProps {
+  content: InstructorContent;
 }
 
-export function PastorMessage({ content }: PastorMessageProps) {
+export function InstructorSection({ content }: InstructorSectionProps) {
   if (!content.enabled) {
     return null;
   }

@@ -1,16 +1,16 @@
 "use client";
 
-import type { PastorMessageContent } from "@/content/home-content";
+import type { InstructorContent } from "@/content/home-content";
 
-interface PastorMessageEditorProps {
-  value: PastorMessageContent;
-  onChange: (next: PastorMessageContent) => void;
+interface InstructorSectionEditorProps {
+  value: InstructorContent;
+  onChange: (next: InstructorContent) => void;
 }
 
-export function PastorMessageEditor({
+export function InstructorSectionEditor({
   value,
   onChange,
-}: PastorMessageEditorProps) {
+}: InstructorSectionEditorProps) {
   return (
     <div className="space-y-4 rounded-lg border border-border bg-card p-6 shadow-sm">
       <div className="space-y-2">
@@ -26,19 +26,19 @@ export function PastorMessageEditor({
             }
             className="h-4 w-4 rounded border-border"
           />
-          <span>Enable pastor message section</span>
+          <span>Enable instructor section</span>
         </label>
       </div>
 
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="pastor-image-src"
+          htmlFor="instructor-image-src"
         >
           Image path
         </label>
         <input
-          id="pastor-image-src"
+          id="instructor-image-src"
           type="text"
           value={value.image.src}
           onChange={(event) =>
@@ -57,12 +57,12 @@ export function PastorMessageEditor({
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="pastor-image-alt"
+          htmlFor="instructor-image-alt"
         >
           Image alt text
         </label>
         <input
-          id="pastor-image-alt"
+          id="instructor-image-alt"
           type="text"
           value={value.image.alt}
           onChange={(event) =>
@@ -81,12 +81,12 @@ export function PastorMessageEditor({
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="pastor-eyebrow"
+          htmlFor="instructor-eyebrow"
         >
           Eyebrow
         </label>
         <input
-          id="pastor-eyebrow"
+          id="instructor-eyebrow"
           type="text"
           value={value.eyebrow}
           onChange={(event) =>
@@ -102,12 +102,12 @@ export function PastorMessageEditor({
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="pastor-heading"
+          htmlFor="instructor-heading"
         >
           Heading
         </label>
         <input
-          id="pastor-heading"
+          id="instructor-heading"
           type="text"
           value={value.heading}
           onChange={(event) =>
@@ -123,12 +123,12 @@ export function PastorMessageEditor({
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="pastor-paragraphs"
+          htmlFor="instructor-paragraphs"
         >
           Paragraphs
         </label>
         <textarea
-          id="pastor-paragraphs"
+          id="instructor-paragraphs"
           value={value.paragraphs.join("\n")}
           onChange={(event) =>
             onChange({
@@ -147,12 +147,12 @@ export function PastorMessageEditor({
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="pastor-name"
+          htmlFor="instructor-name"
         >
-          Pastor name
+          Instructor name
         </label>
         <input
-          id="pastor-name"
+          id="instructor-name"
           type="text"
           value={value.name}
           onChange={(event) =>
@@ -168,12 +168,12 @@ export function PastorMessageEditor({
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="pastor-title"
+          htmlFor="instructor-title"
         >
-          Pastor title
+          Instructor title
         </label>
         <input
-          id="pastor-title"
+          id="instructor-title"
           type="text"
           value={value.title}
           onChange={(event) =>
@@ -210,12 +210,12 @@ export function PastorMessageEditor({
         <div className="space-y-2">
           <label
             className="text-sm font-medium text-foreground"
-            htmlFor="pastor-cta-label"
+            htmlFor="instructor-cta-label"
           >
             CTA label
           </label>
           <input
-            id="pastor-cta-label"
+            id="instructor-cta-label"
             type="text"
             value={value.cta.label}
             onChange={(event) =>
@@ -234,12 +234,12 @@ export function PastorMessageEditor({
         <div className="space-y-2">
           <label
             className="text-sm font-medium text-foreground"
-            htmlFor="pastor-cta-href"
+            htmlFor="instructor-cta-href"
           >
             CTA link
           </label>
           <input
-            id="pastor-cta-href"
+            id="instructor-cta-href"
             type="text"
             value={value.cta.href}
             onChange={(event) =>

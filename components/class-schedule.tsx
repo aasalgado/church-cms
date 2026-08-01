@@ -1,13 +1,13 @@
 import { Clock, MapPin, Users } from "lucide-react";
-import type { ServiceTimesContent } from "@/content/home-content";
+import type { ClassScheduleContent } from "@/content/home-content";
 
-interface ServiceTimesProps {
-  content: ServiceTimesContent;
+interface ClassScheduleProps {
+  content: ClassScheduleContent;
 }
 
-const serviceIcons = [Clock, Users, MapPin];
+const scheduleIcons = [Clock, Users, MapPin];
 
-export function ServiceTimes({ content }: ServiceTimesProps) {
+export function ClassSchedule({ content }: ClassScheduleProps) {
   if (!content.enabled) {
     return null;
   }
@@ -28,25 +28,25 @@ export function ServiceTimes({ content }: ServiceTimesProps) {
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {content.services.map((service, index) => {
-            const Icon = serviceIcons[index % serviceIcons.length] ?? Clock;
+          {content.classes.map((item, index) => {
+            const Icon = scheduleIcons[index % scheduleIcons.length] ?? Clock;
 
             return (
               <div
-                key={`${service.title}-${index}`}
+                key={`${item.title}-${index}`}
                 className="flex flex-col items-start rounded-2xl border border-border bg-card p-7 shadow-sm transition-shadow hover:shadow-md"
               >
                 <span className="flex size-12 items-center justify-center rounded-full bg-accent text-accent-foreground">
                   <Icon className="size-6" aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 font-serif text-xl font-semibold text-foreground">
-                  {service.title}
+                  {item.title}
                 </h3>
                 <p className="mt-1 text-lg font-medium text-primary">
-                  {service.time}
+                  {item.time}
                 </p>
                 <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
-                  {service.description}
+                  {item.description}
                 </p>
               </div>
             );

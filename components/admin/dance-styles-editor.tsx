@@ -1,13 +1,13 @@
 "use client";
 
-import type { MinistriesContent } from "@/content/home-content";
+import type { DanceStylesContent } from "@/content/home-content";
 
-interface MinistriesEditorProps {
-  value: MinistriesContent;
-  onChange: (next: MinistriesContent) => void;
+interface DanceStylesEditorProps {
+  value: DanceStylesContent;
+  onChange: (next: DanceStylesContent) => void;
 }
 
-export function MinistriesEditor({ value, onChange }: MinistriesEditorProps) {
+export function DanceStylesEditor({ value, onChange }: DanceStylesEditorProps) {
   return (
     <div className="space-y-4 rounded-lg border border-border bg-card p-6 shadow-sm">
       <div className="space-y-2">
@@ -23,19 +23,19 @@ export function MinistriesEditor({ value, onChange }: MinistriesEditorProps) {
             }
             className="h-4 w-4 rounded border-border"
           />
-          <span>Enable ministries section</span>
+          <span>Enable dance styles section</span>
         </label>
       </div>
 
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="ministries-eyebrow"
+          htmlFor="dance-styles-eyebrow"
         >
           Eyebrow
         </label>
         <input
-          id="ministries-eyebrow"
+          id="dance-styles-eyebrow"
           type="text"
           value={value.eyebrow}
           onChange={(event) =>
@@ -51,12 +51,12 @@ export function MinistriesEditor({ value, onChange }: MinistriesEditorProps) {
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="ministries-heading"
+          htmlFor="dance-styles-heading"
         >
           Heading
         </label>
         <input
-          id="ministries-heading"
+          id="dance-styles-heading"
           type="text"
           value={value.heading}
           onChange={(event) =>
@@ -72,12 +72,12 @@ export function MinistriesEditor({ value, onChange }: MinistriesEditorProps) {
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="ministries-intro"
+          htmlFor="dance-styles-intro"
         >
           Intro
         </label>
         <textarea
-          id="ministries-intro"
+          id="dance-styles-intro"
           value={value.intro}
           onChange={(event) =>
             onChange({
@@ -91,29 +91,27 @@ export function MinistriesEditor({ value, onChange }: MinistriesEditorProps) {
       </div>
 
       <div className="space-y-3">
-        {value.ministries.map((ministry, index) => (
+        {value.styles.map((style, index) => (
           <div
-            key={`${ministry.title}-${index}`}
+            key={`${style.title}-${index}`}
             className="rounded-md border border-border/60 p-4"
           >
             <div className="space-y-2">
               <label
                 className="text-sm font-medium text-foreground"
-                htmlFor={`ministries-title-${index}`}
+                htmlFor={`dance-styles-title-${index}`}
               >
-                Ministry title {index + 1}
+                Style title {index + 1}
               </label>
               <input
-                id={`ministries-title-${index}`}
+                id={`dance-styles-title-${index}`}
                 type="text"
-                value={ministry.title}
+                value={style.title}
                 onChange={(event) =>
                   onChange({
                     ...value,
-                    ministries: value.ministries.map((item, itemIndex) =>
-                      itemIndex === index
-                        ? { ...item, title: event.target.value }
-                        : item,
+                    styles: value.styles.map((s, i) =>
+                      i === index ? { ...s, title: event.target.value } : s,
                     ),
                   })
                 }
@@ -124,20 +122,20 @@ export function MinistriesEditor({ value, onChange }: MinistriesEditorProps) {
             <div className="mt-3 space-y-2">
               <label
                 className="text-sm font-medium text-foreground"
-                htmlFor={`ministries-description-${index}`}
+                htmlFor={`dance-styles-description-${index}`}
               >
                 Description {index + 1}
               </label>
               <textarea
-                id={`ministries-description-${index}`}
-                value={ministry.description}
+                id={`dance-styles-description-${index}`}
+                value={style.description}
                 onChange={(event) =>
                   onChange({
                     ...value,
-                    ministries: value.ministries.map((item, itemIndex) =>
-                      itemIndex === index
-                        ? { ...item, description: event.target.value }
-                        : item,
+                    styles: value.styles.map((s, i) =>
+                      i === index
+                        ? { ...s, description: event.target.value }
+                        : s,
                     ),
                   })
                 }

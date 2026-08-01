@@ -1,13 +1,13 @@
 import { Baby, BookOpen, HandHeart, Heart, Music, Users } from "lucide-react";
-import type { MinistriesContent } from "@/content/home-content";
+import type { DanceStylesContent } from "@/content/home-content";
 
-interface MinistriesSectionProps {
-  content: MinistriesContent;
+interface DanceStylesProps {
+  content: DanceStylesContent;
 }
 
-const ministryIcons = [Baby, Users, BookOpen, Music, HandHeart, Heart];
+const danceStyleIcons = [Baby, Users, BookOpen, Music, HandHeart, Heart];
 
-export function MinistriesSection({ content }: MinistriesSectionProps) {
+export function DanceStyles({ content }: DanceStylesProps) {
   if (!content.enabled) {
     return null;
   }
@@ -28,22 +28,22 @@ export function MinistriesSection({ content }: MinistriesSectionProps) {
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {content.ministries.map((ministry, index) => {
-            const Icon = ministryIcons[index % ministryIcons.length] ?? Heart;
+          {content.styles.map((style, index) => {
+            const Icon = danceStyleIcons[index % danceStyleIcons.length] ?? Heart;
 
             return (
               <div
-                key={`${ministry.title}-${index}`}
+                key={`${style.title}-${index}`}
                 className="group rounded-2xl border border-border bg-card p-7 transition-colors hover:border-primary/40"
               >
                 <span className="flex size-12 items-center justify-center rounded-xl bg-accent text-accent-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <Icon className="size-6" aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 font-serif text-xl font-semibold text-foreground">
-                  {ministry.title}
+                  {style.title}
                 </h3>
                 <p className="mt-2 text-pretty leading-relaxed text-muted-foreground">
-                  {ministry.description}
+                  {style.description}
                 </p>
               </div>
             );

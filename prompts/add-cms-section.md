@@ -2,9 +2,9 @@ Extend the existing admin CMS by adding support for editing the [SECTION_NAME] s
 
 Before making changes, inspect the existing implementations for:
 
-- AnnouncementEditor
+- EventBannerEditor
 - HeroEditor
-- WelcomeEditor
+- StudioIntroductionEditor
 - SiteNavbarEditor
 - SiteFooterEditor
 - the existing presentation component for [SECTION_NAME]

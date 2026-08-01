@@ -1,11 +1,11 @@
 import { Sparkles } from "lucide-react";
-import type { AnnouncementContent } from "@/content/home-content";
+import type { EventBannerContent } from "@/content/home-content";
 
-interface AnnouncementBannerProps {
-  content: AnnouncementContent;
+interface EventBannerProps {
+  content: EventBannerContent;
 }
 
-export function AnnouncementBanner({ content }: AnnouncementBannerProps) {
+export function EventBanner({ content }: EventBannerProps) {
   if (!content.enabled) {
     return null;
   }

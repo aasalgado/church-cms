@@ -1,13 +1,16 @@
 "use client";
 
-import type { WelcomeMessageContent } from "@/content/home-content";
+import type { StudioIntroductionContent } from "@/content/home-content";
 
-interface WelcomeEditorProps {
-  value: WelcomeMessageContent;
-  onChange: (next: WelcomeMessageContent) => void;
+interface StudioIntroductionEditorProps {
+  value: StudioIntroductionContent;
+  onChange: (next: StudioIntroductionContent) => void;
 }
 
-export function WelcomeEditor({ value, onChange }: WelcomeEditorProps) {
+export function StudioIntroductionEditor({
+  value,
+  onChange,
+}: StudioIntroductionEditorProps) {
   return (
     <div className="space-y-4 rounded-lg border border-border bg-card p-6 shadow-sm">
       <div className="space-y-2">
@@ -23,19 +26,19 @@ export function WelcomeEditor({ value, onChange }: WelcomeEditorProps) {
             }
             className="h-4 w-4 rounded border-border"
           />
-          <span>Enable welcome section</span>
+          <span>Enable studio introduction section</span>
         </label>
       </div>
 
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="welcome-image-src"
+          htmlFor="studio-intro-image-src"
         >
           Image path
         </label>
         <input
-          id="welcome-image-src"
+          id="studio-intro-image-src"
           type="text"
           value={value.image.src}
           onChange={(event) =>
@@ -54,12 +57,12 @@ export function WelcomeEditor({ value, onChange }: WelcomeEditorProps) {
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="welcome-image-alt"
+          htmlFor="studio-intro-image-alt"
         >
           Image alt text
         </label>
         <input
-          id="welcome-image-alt"
+          id="studio-intro-image-alt"
           type="text"
           value={value.image.alt}
           onChange={(event) =>
@@ -78,12 +81,12 @@ export function WelcomeEditor({ value, onChange }: WelcomeEditorProps) {
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="welcome-badge-value"
+          htmlFor="studio-intro-badge-value"
         >
           Badge value
         </label>
         <input
-          id="welcome-badge-value"
+          id="studio-intro-badge-value"
           type="text"
           value={value.badge.value}
           onChange={(event) =>
@@ -102,12 +105,12 @@ export function WelcomeEditor({ value, onChange }: WelcomeEditorProps) {
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="welcome-badge-label"
+          htmlFor="studio-intro-badge-label"
         >
           Badge label
         </label>
         <input
-          id="welcome-badge-label"
+          id="studio-intro-badge-label"
           type="text"
           value={value.badge.label}
           onChange={(event) =>
@@ -126,12 +129,12 @@ export function WelcomeEditor({ value, onChange }: WelcomeEditorProps) {
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="welcome-eyebrow"
+          htmlFor="studio-intro-eyebrow"
         >
           Eyebrow
         </label>
         <input
-          id="welcome-eyebrow"
+          id="studio-intro-eyebrow"
           type="text"
           value={value.eyebrow}
           onChange={(event) =>
@@ -147,12 +150,12 @@ export function WelcomeEditor({ value, onChange }: WelcomeEditorProps) {
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="welcome-headline"
+          htmlFor="studio-intro-headline"
         >
           Headline
         </label>
         <input
-          id="welcome-headline"
+          id="studio-intro-headline"
           type="text"
           value={value.headline}
           onChange={(event) =>
@@ -168,12 +171,12 @@ export function WelcomeEditor({ value, onChange }: WelcomeEditorProps) {
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="welcome-paragraphs"
+          htmlFor="studio-intro-paragraphs"
         >
           Paragraphs
         </label>
         <textarea
-          id="welcome-paragraphs"
+          id="studio-intro-paragraphs"
           value={value.paragraphs.join("\n")}
           onChange={(event) =>
             onChange({
@@ -192,12 +195,12 @@ export function WelcomeEditor({ value, onChange }: WelcomeEditorProps) {
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="welcome-quote"
+          htmlFor="studio-intro-quote"
         >
           Quote
         </label>
         <textarea
-          id="welcome-quote"
+          id="studio-intro-quote"
           value={value.quote}
           onChange={(event) =>
             onChange({

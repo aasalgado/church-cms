@@ -1,16 +1,16 @@
 "use client";
 
-import type { AnnouncementContent } from "@/content/home-content";
+import type { EventBannerContent } from "@/content/home-content";
 
-interface AnnouncementEditorProps {
-  value: AnnouncementContent;
-  onChange: (next: AnnouncementContent) => void;
+interface EventBannerEditorProps {
+  value: EventBannerContent;
+  onChange: (next: EventBannerContent) => void;
 }
 
-export function AnnouncementEditor({
+export function EventBannerEditor({
   value,
   onChange,
-}: AnnouncementEditorProps) {
+}: EventBannerEditorProps) {
   return (
     <div className="space-y-4 rounded-lg border border-border bg-card p-6 shadow-sm">
       <div className="space-y-2">
@@ -26,19 +26,19 @@ export function AnnouncementEditor({
             }
             className="h-4 w-4 rounded border-border"
           />
-          <span>Enable announcement</span>
+          <span>Enable event banner</span>
         </label>
       </div>
 
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="announcement-title"
+          htmlFor="event-banner-title"
         >
           Title
         </label>
         <input
-          id="announcement-title"
+          id="event-banner-title"
           type="text"
           value={value.title}
           onChange={(event) =>
@@ -51,12 +51,12 @@ export function AnnouncementEditor({
       <div className="space-y-2">
         <label
           className="text-sm font-medium text-foreground"
-          htmlFor="announcement-message"
+          htmlFor="event-banner-message"
         >
           Message
         </label>
         <textarea
-          id="announcement-message"
+          id="event-banner-message"
           value={value.message}
           onChange={(event) =>
             onChange({ ...value, message: event.target.value })

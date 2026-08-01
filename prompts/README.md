@@ -2,13 +2,13 @@
 
 This folder contains reusable AI prompts used during development.
 
-These prompts are intended to standardize implementation patterns and reduce repetitive instructions when working with GitHub Copilot or ChatGPT.
+These prompts are intended to standardize implementation patterns and reduce repetitive instructions when working with GitHub Copilot, ChatGPT, or Amazon Q Developer.
 
 Current prompts:
 
 - Add CMS Section
 
-Adds a new editable homepage section to the admin CMS while preserving the existing architecture.
+Adds a new editable section to the admin CMS while preserving the existing architecture.
 
 Example:
 
@@ -17,9 +17,10 @@ Follow the instructions in `prompts/add-cms-section.md`.
 
 Implement:
 
-Section: Ministries
-Presentation Component: MinistriesSection
-Content Type: MinistriesContent
-Content Object: ministriesContent
-Editor File: ministries-editor.tsx
+Section: Dance Styles
+Presentation Component: DanceStyles
+Content Type: DanceStylesContent
+Content Object: danceStylesContent
+Content File: content/home-content.ts
+Editor File: dance-styles-editor.tsx
 ```

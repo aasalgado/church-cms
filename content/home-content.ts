@@ -4,13 +4,13 @@ export interface CtaContent {
   href: string;
 }
 
-export interface AnnouncementContent {
+export interface EventBannerContent {
   enabled: boolean;
   title: string;
   message: string;
 }
 
-export interface WelcomeMessageContent {
+export interface StudioIntroductionContent {
   enabled: boolean;
   image: {
     src: string;
@@ -26,34 +26,34 @@ export interface WelcomeMessageContent {
   quote: string;
 }
 
-export interface ServiceTimeItem {
+export interface ClassScheduleItem {
   title: string;
   time: string;
   description: string;
 }
 
-export interface ServiceTimesContent {
+export interface ClassScheduleContent {
   enabled: boolean;
   eyebrow: string;
   heading: string;
   intro: string;
-  services: ServiceTimeItem[];
+  classes: ClassScheduleItem[];
 }
 
-export interface MinistryItem {
+export interface DanceStyleItem {
   title: string;
   description: string;
 }
 
-export interface MinistriesContent {
+export interface DanceStylesContent {
   enabled: boolean;
   eyebrow: string;
   heading: string;
   intro: string;
-  ministries: MinistryItem[];
+  styles: DanceStyleItem[];
 }
 
-export interface PastorMessageContent {
+export interface InstructorContent {
   enabled: boolean;
   image: {
     src: string;
@@ -94,13 +94,13 @@ export interface HeroContent {
   secondaryCta: CtaContent;
 }
 
-export const announcementContent: AnnouncementContent = {
+export const eventBannerContent: EventBannerContent = {
   enabled: true,
   title: "Christmas Eve Candlelight Service",
   message: "December 24 at 6:00 PM — everyone is welcome",
 };
 
-export const welcomeMessageContent: WelcomeMessageContent = {
+export const studioIntroductionContent: StudioIntroductionContent = {
   enabled: true,
   image: {
     src: "/welcome-gathering.png",
@@ -119,13 +119,13 @@ export const welcomeMessageContent: WelcomeMessageContent = {
   quote: "Come to me, all you who are weary, and I will give you rest.",
 };
 
-export const serviceTimesContent: ServiceTimesContent = {
+export const classScheduleContent: ClassScheduleContent = {
   enabled: true,
   eyebrow: "Gather With Us",
   heading: "Service Times",
   intro:
     "Come as you are. Our doors open early so you can grab a coffee and settle in before worship begins.",
-  services: [
+  classes: [
     {
       title: "Sunday Worship",
       time: "9:00 & 11:00 AM",
@@ -146,13 +146,13 @@ export const serviceTimesContent: ServiceTimesContent = {
   ],
 };
 
-export const ministriesContent: MinistriesContent = {
+export const danceStylesContent: DanceStylesContent = {
   enabled: true,
   eyebrow: "Get Involved",
   heading: "Ministries For Every Season of Life",
   intro:
     "There's a place for you to belong, grow, and make a difference. Explore the many ways to connect at Grace Hollow.",
-  ministries: [
+  styles: [
     {
       title: "Kids & Nursery",
       description:
@@ -182,7 +182,7 @@ export const ministriesContent: MinistriesContent = {
   ],
 };
 
-export const pastorMessageContent: PastorMessageContent = {
+export const instructorContent: InstructorContent = {
   enabled: true,
   image: {
     src: "/pastor.png",
