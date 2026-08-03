@@ -2,20 +2,26 @@
 
 ---
 
-## Sprint 2.1
-
-### Goal
-
-Replace church navigation, footer, metadata, and navigation anchors.
+## Sprint 2.1 — Navbar, Footer & Metadata
 
 ### Status
 
-In Progress
+Completed
 
-### Notes
+### Completed
 
-No notes yet.
+- Updated site metadata for RhythmAddict Dance Studio
+- Updated navbar branding and navigation
+- Updated footer branding, links, address, phone, and email
+- Renamed section anchors to `#classes` and `#styles`
+- Fixed the hero CTA anchor
+- Verified no old `#services` or `#ministries` references remain
+- Confirmed the production build passes
 
-### Lessons Learned
+### Modified Files
 
-(To be completed after the sprint.)
+- `app/layout.tsx`
+- `content/site-content.ts`
+- `content/home-content.ts`
+- `components/class-schedule.tsx`
+- `components/dance-styles.tsx`
