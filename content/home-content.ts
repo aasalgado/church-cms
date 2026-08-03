@@ -246,7 +246,7 @@ export const heroContent: HeroContent = {
   primaryCta: {
     enabled: true,
     label: "Join Us Sunday",
-    href: "#services",
+    href: "#classes",
   },
   secondaryCta: {
     enabled: true,

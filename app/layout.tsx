@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Grace Hollow Church — A Welcoming Community of Faith',
+  title: 'RhythmAddict Dance Studio | Salsa, Bachata & Cumbia in Rancho Cucamonga',
   description:
-    'Join us at Grace Hollow Church. Sunday worship, ministries for every age, and a warm community where everyone belongs.',
+    "Learn Salsa, Bachata, Cumbia, and couples' Ballroom and Swing at RhythmAddict Dance Studio in Rancho Cucamonga. Beginner-friendly adult classes, private lessons, and a welcoming dance community.",
   generator: 'v0.app',
   icons: {
     icon: [

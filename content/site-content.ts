@@ -44,46 +44,47 @@ export interface SiteContent {
 
 export const siteFooterContent: SiteFooterContent = {
   brand: {
-    name: "Grace Hollow",
+    name: "RhythmAddict",
     href: "#home",
   },
   description:
-    "A welcoming community of faith in Cedar Falls. However you found us, we're so glad you're here.",
+    "A welcoming adult dance community in Rancho Cucamonga where students can build confidence, improve their skills, and connect through Salsa, Bachata, Cumbia, Ballroom, and Swing.",
   explore: {
     heading: "Explore",
     links: [
       { label: "About Us", href: "#welcome" },
-      { label: "Service Times", href: "#services" },
-      { label: "Ministries", href: "#ministries" },
-      { label: "Plan a Visit", href: "#contact" },
+      { label: "Class Schedule", href: "#classes" },
+      { label: "Dance Styles", href: "#styles" },
+      { label: "Contact Us", href: "#contact" },
     ],
   },
   connect: {
     heading: "Connect",
     items: [
-      "142 Maple Grove Lane",
-      "Cedar Falls, IA 50613",
-      "(319) 555-0142",
-      "hello@gracehollow.church",
+      "9651 Business Center Drive",
+      "Building 15, Suite A",
+      "Rancho Cucamonga, CA",
+      "(909) 265-7647",
+      "Dance@RhythmAddictDance.com",
     ],
   },
-  copyright: "Grace Hollow Church. All are welcome.",
+  copyright: "RhythmAddict Dance Studio. Learn, connect, and keep dancing.",
 };
 
 export const siteContent: SiteContent = {
   brand: {
-    name: "Grace Hollow",
+    name: "RhythmAddict",
     href: "#home",
   },
   navigation: [
     { label: "Home", href: "#home" },
     { label: "About", href: "#welcome" },
-    { label: "Services", href: "#services" },
-    { label: "Ministries", href: "#ministries" },
-    { label: "Visit", href: "#contact" },
+    { label: "Classes", href: "#classes" },
+    { label: "Dance Styles", href: "#styles" },
+    { label: "Contact", href: "#contact" },
   ],
   primaryCta: {
-    label: "Plan a Visit",
-    href: "#services",
+    label: "View Class Schedule",
+    href: "#classes",
   },
 };
