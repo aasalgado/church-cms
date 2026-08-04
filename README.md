@@ -1,54 +1,94 @@
-# Church CMS
+# Dance Studio CMS
 
-A modern, cloud-ready Content Management System (CMS) built specifically for church websites.
+A modern, cloud-ready Content Management System (CMS) designed for dance studios.
 
-This project is being developed as a portfolio project to demonstrate modern full-stack development practices using React, Next.js, TypeScript, and AWS. The long-term goal is to provide churches with a simple, affordable, and maintainable CMS that allows administrators to manage website content without editing code.
+This project began as a church CMS to explore scalable content management architecture. It has since evolved into a reusable platform focused on dance studios, with the long-term vision of becoming a complete SaaS solution that combines a modern marketing website, intuitive CMS, scheduling, payments, and student management.
+
+The project is being built as both a portfolio application and a real-world product, following an iterative, sprint-based development process.
 
 ---
 
-## Current Status
+# Vision
 
-**Version:** CMS v1
+Build an all-in-one platform that helps dance studios:
 
-### Completed
+- Manage their website without editing code
+- Update classes, events, and announcements
+- Manage instructors and students
+- Schedule classes
+- Accept online payments
+- Grow their business with an easy-to-use CMS
 
-- Homepage CMS
-- Announcement editor
-- Hero editor
-- Welcome Message editor
-- Ministries editor
-- Pastor Message editor
-- Service Times editor
-- Location & Contact editor
-- Navigation editor
-- Footer editor
-- Live preview
+---
+
+# Current Status
+
+**Current Phase:** Phase 2 – Dance Studio Conversion
+
+**Current Sprint:** Sprint 2.2 – Hero & Event Banner
+
+---
+
+## Completed
+
+### Foundation
+
+- Generic CMS architecture
 - Typed content models
-- Registry-based admin interface
+- Registry-driven admin interface
+- Live preview
+- Section-based editing
+- Reusable presentation components
 
-### Planned
+### Dance Studio Migration
 
+- Church architecture renamed to dance studio architecture
+- Navbar converted
+- Footer converted
+- Site metadata updated
+- Navigation updated
+- Section anchors updated
+- Hero content converted
+- Event banner converted
+
+---
+
+## Planned
+
+### Phase 2
+
+- Studio Introduction
+- Class Schedule
+- Dance Styles
+- Instructor Section
+- Contact Section
+
+### Future
+
+- Visual redesign
+- Image management
 - AWS backend
 - Authentication
-- Image uploads
-- Persistence
-- Version history
-- Multi-site support
-- Multi-tenant architecture
+- Scheduling system
+- Student portal
+- Instructor dashboard
+- Payments
+- Multi-tenant SaaS
 
 ---
 
 # Features
 
+Current features include:
+
 - Modern Next.js App Router architecture
-- TypeScript throughout
-- Pure presentational components
-- Registry-driven admin interface
-- Live preview while editing
+- React + TypeScript
 - Strongly typed content models
+- Registry-driven CMS
+- Live preview
 - Responsive design
-- Simple administrator experience
-- Architecture designed for future AWS integration
+- Clean component architecture
+- AI-assisted development workflow
 
 ---
 
@@ -73,7 +113,7 @@ This project is being developed as a portfolio project to demonstrate modern ful
 - npm
 - VS Code
 
-## AI Assisted Development
+## AI-Assisted Development
 
 - ChatGPT
 - GitHub Copilot
@@ -81,57 +121,31 @@ This project is being developed as a portfolio project to demonstrate modern ful
 
 ---
 
-# Planned AWS Architecture
+# Planned Platform
 
-The project is intentionally being built in phases.
+The long-term roadmap extends beyond a marketing website.
 
-## Phase 1
+## Version 1
 
-Frontend CMS
+- Marketing website
+- CMS
+- Content management
 
-- Local content
-- No backend
-- No authentication
-- No persistence
+## Version 2
 
-Purpose:
+- Scheduling
+- Events
+- Student registrations
 
-- Validate architecture
-- Build reusable components
-- Establish CMS editing pattern
+## Version 3
 
----
+- Payments
+- Student portal
+- Instructor dashboard
 
-## Phase 2
+## Version 4
 
-AWS Backend
-
-Planned services include:
-
-- Amazon S3
-- Amazon CloudFront
-- Amazon DynamoDB
-- AWS Lambda
-- Amazon API Gateway
-- Amazon Cognito
-- AWS IAM
-- Amazon CloudWatch
-
----
-
-## Phase 3
-
-Production CMS
-
-Planned features:
-
-- Content persistence
-- Authentication
-- Image management
-- Multiple administrators
-- Audit history
-- Multi-site support
-- Deployment automation
+- Multi-tenant SaaS platform
 
 ---
 
@@ -142,51 +156,58 @@ app/
 components/
 components/admin/
 content/
+docs/
 prompts/
 public/
 ```
+
+Documentation is maintained alongside the source code in the `docs/` directory.
 
 ---
 
 # Design Principles
 
-This project follows a few core architectural principles.
-
 - Presentation components never own content.
 - Every editable section has a typed content model.
-- Editors are controlled by the admin page.
-- Public pages never depend on admin draft state.
-- Components remain reusable and easy to test.
-- Avoid unnecessary abstractions.
+- Editors are controlled through a centralized admin interface.
+- Keep content, presentation, and business logic separate.
+- Build one complete sprint at a time.
 - Prefer consistency over cleverness.
+- Design every feature with long-term scalability in mind.
 
 ---
 
 # Learning Goals
 
-This project is focused on learning modern software engineering practices including:
+This project focuses on modern software engineering practices including:
 
 - React architecture
 - Next.js App Router
 - TypeScript
-- Component design
-- State management
-- Cloud architecture
-- AWS services
-- Infrastructure design
+- Component-driven design
+- CMS architecture
+- AWS cloud architecture
+- Product design
+- SaaS architecture
 - AI-assisted software development
 
 ---
 
-# Future Roadmap
+# Roadmap
 
-- [x] CMS v1
-- [ ] Backend persistence
+- [x] Phase 1 – CMS Foundation
+- [x] Sprint 2.1 – Navbar, Footer & Metadata
+- [x] Sprint 2.2 – Hero & Event Banner
+- [ ] Sprint 2.3 – Studio Introduction
+- [ ] Sprint 2.4 – Class Schedule & Dance Styles
+- [ ] Sprint 2.5 – Instructor & Contact
+- [ ] Visual redesign
+- [ ] Backend
 - [ ] Authentication
-- [ ] Image uploads
-- [ ] AWS deployment
-- [ ] Multi-site CMS
-- [ ] Production launch
+- [ ] Scheduling
+- [ ] Payments
+- [ ] Student portal
+- [ ] Multi-tenant SaaS
 
 ---
 
@@ -212,6 +233,18 @@ npm run build
 
 ---
 
+# Documentation
+
+Project documentation is maintained in the `docs/` directory and includes:
+
+- Product Handbook
+- Sprint Log
+- Architecture Decision Records (ADRs)
+- Roadmap
+- Meeting Notes
+
+---
+
 # License
 
-This project is currently intended for educational and portfolio purposes.
+This project is currently intended for educational, portfolio, and product development purposes.
