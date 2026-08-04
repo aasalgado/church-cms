@@ -46,3 +46,4 @@
 - Payments
 - Student Portal
 - Multi-tenant SaaS
+- Event Banner enhancements: start date, end date, auto-publish, auto-expiration, optional CTA label and link

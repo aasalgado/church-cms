@@ -96,8 +96,8 @@ export interface HeroContent {
 
 export const eventBannerContent: EventBannerContent = {
   enabled: true,
-  title: "Christmas Eve Candlelight Service",
-  message: "December 24 at 6:00 PM — everyone is welcome",
+  title: "Friday Night Social",
+  message: "Join us for an evening of Salsa, Bachata, and Cumbia. All levels are welcome.",
 };
 
 export const studioIntroductionContent: StudioIntroductionContent = {
@@ -240,12 +240,12 @@ export const heroContent: HeroContent = {
     src: "/hero-church.png",
     alt: "Sunlight streaming through the windows of the Grace Hollow sanctuary",
   },
-  preHeading: "Welcome Home",
-  headline: "A place to belong, believe, and become",
-  copy: "Grace Hollow Church is a warm community of ordinary people seeking hope, grace, and a deeper faith together. Wherever you are on your journey, there's a seat saved for you.",
+  preHeading: "Adult Dance Studio • Rancho Cucamonga",
+  headline: "Learn Salsa, Bachata & More in a Fun, Welcoming Community",
+  copy: "Whether you're taking your very first dance class or looking to grow your social dancing skills, RhythmAddict offers welcoming instruction, supportive instructors, and a community you'll love being part of.",
   primaryCta: {
     enabled: true,
-    label: "Join Us Sunday",
+    label: "View Class Schedule",
     href: "#classes",
   },
   secondaryCta: {
