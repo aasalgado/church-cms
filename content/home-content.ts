@@ -110,13 +110,13 @@ export const studioIntroductionContent: StudioIntroductionContent = {
     value: "25+",
     label: "Years serving our town",
   },
-  eyebrow: "Welcome",
-  headline: "You're not a stranger here. You're family.",
+  eyebrow: "Everyone Starts Somewhere",
+  headline: "Discover the Joy of Social Dancing",
   paragraphs: [
-    "Whether you've been walking with faith your whole life or you're simply curious, Grace Hollow is a place where questions are welcome and people are loved exactly as they are.",
-    "We believe church should feel less like an obligation and more like coming home — a place of warmth, honesty, and grace. We'd be honored to share the journey with you.",
+    "Whether you've never danced before or you're looking to build on your experience, RhythmAddict is a place where you can learn, grow, and have fun.",
+    "Our classes are designed to help you build confidence, meet new people, and enjoy every step of your dance journey. With supportive instructors and a welcoming community, you'll feel comfortable from your very first class.",
   ],
-  quote: "Come to me, all you who are weary, and I will give you rest.",
+  quote: "The first step is showing up. We'll help you find the rhythm.",
 };
 
 export const classScheduleContent: ClassScheduleContent = {
