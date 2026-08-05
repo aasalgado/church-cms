@@ -12,18 +12,18 @@
 
 ### Sprint 2.1
 
-- [ ] Navbar
-- [ ] Footer
-- [ ] Metadata
+- [x] Navbar
+- [x] Footer
+- [x] Metadata
 
 ### Sprint 2.2
 
-- [ ] Hero
-- [ ] Event Banner
+- [x] Hero
+- [x] Event Banner
 
 ### Sprint 2.3
 
-- [ ] Studio Introduction
+- [x] Studio Introduction
 
 ### Sprint 2.4
 
