@@ -12,9 +12,9 @@ Welcome to the project documentation.
 
 ## Project Status
 
-**Current Phase:** Phase 2 – Dance Studio Conversion
+**Current Phase:** Phase 3 – Visual Rebrand
 
-**Current Sprint:** Sprint 2.5 – Instructor & Contact
+**Current Sprint:** Phase 3.1 – Brand Direction & Visual Audit
 
 ---
 

@@ -10,6 +10,8 @@
 
 ## Phase 2
 
+**Status: Completed**
+
 ### Sprint 2.1
 
 - [x] Navbar
@@ -32,8 +34,18 @@
 
 ### Sprint 2.5
 
-- [ ] Instructor
-- [ ] Contact
+- [x] Instructor
+- [x] Contact
+
+---
+
+## Phase 3
+
+**Status: Active**
+
+### Sprint 3.1
+
+- [ ] Brand Direction & Visual Audit
 
 ---
 

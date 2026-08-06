@@ -148,3 +148,58 @@ Replace the remaining church-themed Class Schedule and Dance Styles content with
 **Next Sprint**
 
 Sprint 2.5 – Instructor & Contact
+
+---
+
+## Sprint 2.5 — Instructor & Contact
+
+### Status
+
+Completed
+
+### Goal
+
+Replace the remaining church-themed Instructor and Contact content with verified RhythmAddict business information while preserving the existing component architecture and layout.
+
+### Completed
+
+- Updated the Instructor section with Esther as Owner & Lead Instructor
+- Added the verified instructor image
+- Replaced all remaining church-themed instructor copy
+- Updated the Instructor CTA to link to the class schedule
+- Updated the studio address, phone number, and email
+- Updated the Contact section copy
+- Added the verified Google Maps directions link
+- Updated the map accessibility title
+- Replaced the previous embedded map with the RhythmAddict location
+- Verified the production build passes
+- Completed the public-facing church terminology scan
+
+### Lessons Learned
+
+- A successful content migration requires both code-level scans and visual inspection.
+- A passing build does not detect incorrect images, maps, or business information.
+- External image and map URLs should be inspected for compatibility before use.
+- Verified business information should be used instead of invented placeholder details.
+
+### Modified Files
+
+- `content/home-content.ts`
+- `components/location-contact.tsx`
+
+### Retrospective
+
+**What went well**
+
+- Verified business information was integrated without changing the content architecture.
+- The remote instructor image worked without additional Next.js configuration.
+- The embedded map was corrected during visual review.
+
+**What we learned**
+
+- Visual review is an essential part of the Definition of Done.
+- Migration checklists help identify details that automated scans cannot detect.
+
+**Next Phase**
+
+Phase 3 – Visual Rebrand
