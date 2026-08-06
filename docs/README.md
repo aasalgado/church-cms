@@ -14,7 +14,7 @@ Welcome to the project documentation.
 
 **Current Phase:** Phase 2 – Dance Studio Conversion
 
-**Current Sprint:** Sprint 2.4 – Class Schedule & Dance Styles
+**Current Sprint:** Sprint 2.5 – Instructor & Contact
 
 ---
 

@@ -27,8 +27,8 @@
 
 ### Sprint 2.4
 
-- [ ] Class Schedule
-- [ ] Dance Styles
+- [x] Class Schedule
+- [x] Dance Styles
 
 ### Sprint 2.5
 

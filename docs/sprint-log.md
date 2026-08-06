@@ -93,3 +93,58 @@ Replace the remaining church-themed Studio Introduction content with dance studi
 ### Modified Files
 
 - `content/home-content.ts`
+
+---
+
+## Sprint 2.4 — Class Schedule & Dance Styles
+
+### Status
+
+Completed
+
+### Goal
+
+Replace the remaining church-themed Class Schedule and Dance Styles content with dance studio content while preserving the existing architecture, layout, and content models.
+
+### Completed
+
+- Updated the Class Schedule eyebrow, heading, and introduction
+- Replaced all class entries with RhythmAddict dance classes
+- Used the provided RhythmAddict schedule as the source for the initial demo content
+- Preserved the existing classes array structure
+- Updated the Dance Styles eyebrow, heading, and introduction
+- Replaced all church ministry items with:
+  - Salsa
+  - Bachata
+  - Cumbia
+  - Ballroom & Swing
+- Reduced the dance styles collection from six items to four to better match the current studio offerings
+- Added a roadmap backlog item for future dynamic class management
+- Verified the production build passes
+
+### Lessons Learned
+
+- Arrays provide a flexible foundation for future CMS features.
+- The current content model is sufficient for a marketing website while leaving room for future expansion.
+- Future scheduling features (start dates, instructors, add/remove classes) should be introduced as complete enhancements rather than partial data model changes.
+
+### Modified Files
+
+- `content/home-content.ts`
+- `docs/roadmap.md`
+
+### Retrospective
+
+**What went well**
+
+- Successfully migrated two more major sections without changing component architecture.
+- Verified content remains data-driven and reusable.
+
+**What we learned**
+
+- The existing array-based design will naturally support future administrator-managed classes.
+- Planning future enhancements separately keeps the current implementation clean.
+
+**Next Sprint**
+
+Sprint 2.5 – Instructor & Contact
