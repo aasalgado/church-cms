@@ -71,7 +71,7 @@ export function LocationContact({ content }: LocationContactProps) {
           <div className="overflow-hidden rounded-3xl border border-border shadow-sm">
             <iframe
               title="Map showing the location of RhythmAddict Dance Studio"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-92.46%2C42.49%2C-92.40%2C42.54&layer=mapnik"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.1!2d-117.594447!3d34.0978237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c335bc808e8acd%3A0xe8cf41abce93ed50!2sRhythmAddict%20Dance%20Studio!5e0!3m2!1sen!2sus!4v1"
               className="h-full min-h-[420px] w-full"
               loading="lazy"
             />
