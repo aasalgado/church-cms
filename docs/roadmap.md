@@ -46,4 +46,5 @@
 - Payments
 - Student Portal
 - Multi-tenant SaaS
+- Class Schedule dynamic management: add/remove/enable/disable classes, assign instructors, configure days, start dates, and times
 - Event Banner enhancements: start date, end date, auto-publish, auto-expiration, optional CTA label and link

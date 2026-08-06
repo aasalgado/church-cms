@@ -121,63 +121,58 @@ export const studioIntroductionContent: StudioIntroductionContent = {
 
 export const classScheduleContent: ClassScheduleContent = {
   enabled: true,
-  eyebrow: "Gather With Us",
-  heading: "Service Times",
+  eyebrow: "Find Your Rhythm",
+  heading: "Choose Your Class and Start Dancing",
   intro:
-    "Come as you are. Our doors open early so you can grab a coffee and settle in before worship begins.",
+    "Whether you're taking your first steps or continuing your dance journey, we offer welcoming classes designed to help you build confidence, improve your skills, and enjoy social dancing.",
   classes: [
     {
-      title: "Sunday Worship",
-      time: "9:00 & 11:00 AM",
+      title: "Salsa",
+      time: "Tuesdays & Thursdays • 7:00 PM",
       description:
-        "Contemporary worship, teaching, and community for all ages.",
+        "Build a strong foundation in Salsa while developing timing, partner connection, and confidence.",
     },
     {
-      title: "Wednesday Gathering",
-      time: "7:00 PM",
-      description: "Midweek prayer, small groups, and Bible study.",
+      title: "Bachata",
+      time: "Mondays & Wednesdays • 7:00 PM",
+      description:
+        "Learn the fundamentals of Bachata in a fun and welcoming environment designed for all experience levels.",
     },
     {
-      title: "In Person & Online",
-      time: "Every Week",
+      title: "Cumbia",
+      time: "Mondays • 7:30 PM",
       description:
-        "Join us at the chapel or stream the service live from home.",
+        "Enjoy one of the most popular social dances with easy-to-follow instruction and great music.",
     },
   ],
 };
 
 export const danceStylesContent: DanceStylesContent = {
   enabled: true,
-  eyebrow: "Get Involved",
-  heading: "Ministries For Every Season of Life",
+  eyebrow: "Dance Styles",
+  heading: "Find the Style That's Right for You",
   intro:
-    "There's a place for you to belong, grow, and make a difference. Explore the many ways to connect at Grace Hollow.",
+    "Every dance has its own personality. Explore the styles we teach and discover the one that inspires you to get on the dance floor.",
   styles: [
     {
-      title: "Kids & Nursery",
+      title: "Salsa",
       description:
-        "A safe, joyful space where children learn and grow in faith.",
+        "Energetic partner dancing focused on musicality, footwork, and social dancing.",
     },
     {
-      title: "Youth Group",
-      description: "Friendship, fun, and faith for students in grades 6–12.",
-    },
-    {
-      title: "Small Groups",
+      title: "Bachata",
       description:
-        "Connect deeply through weekly gatherings in homes near you.",
+        "A fun and approachable Latin dance that emphasizes rhythm, connection, and smooth partner movement.",
     },
     {
-      title: "Worship & Arts",
-      description: "Use your gifts in music, song, and creative expression.",
+      title: "Cumbia",
+      description:
+        "An easy-to-learn social dance that's perfect for beginners and enjoyable for dancers of all levels.",
     },
     {
-      title: "Outreach & Service",
-      description: "Love our neighbors by serving the city and those in need.",
-    },
-    {
-      title: "Care & Prayer",
-      description: "Walk through life's seasons supported in prayer and care.",
+      title: "Ballroom & Swing",
+      description:
+        "Classic partner dances that build confidence for weddings, parties, and social events.",
     },
   ],
 };
