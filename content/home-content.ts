@@ -180,52 +180,52 @@ export const danceStylesContent: DanceStylesContent = {
 export const instructorContent: InstructorContent = {
   enabled: true,
   image: {
-    src: "/pastor.png",
-    alt: "Pastor David Reyes, lead pastor of Grace Hollow Church",
+    src: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/MGyH4kHfwqGY581rV9FX/media/6a2a61d361b1ee5d887aadc4.jpg",
+    alt: "Esther, owner and lead instructor at RhythmAddict Dance Studio",
   },
-  eyebrow: "A Word From Our Pastor",
-  heading: "Faith is a journey, and we walk it together",
+  eyebrow: "Meet Your Instructor",
+  heading: "Helping You Find Confidence on the Dance Floor",
   paragraphs: [
-    "When you join us on Sunday, my hope is simple: that you would feel seen, welcomed, and reminded that you are deeply loved. We're not a community of people who have it all figured out — we're a family learning to follow Jesus one honest step at a time.",
-    "Bring your doubts, your hopes, and your whole self. There is room for you here, and I can't wait to meet you.",
+    "Esther is the owner and lead instructor at RhythmAddict Dance Studio. Her goal is to create a welcoming place where adults can learn to dance, build confidence, and enjoy connecting with others.",
+    "Whether you're stepping onto the dance floor for the first time or continuing to develop your skills, Esther and the RhythmAddict community are ready to support you throughout your dance journey.",
   ],
-  name: "Pastor David Reyes",
-  title: "Lead Pastor, Grace Hollow Church",
+  name: "Esther",
+  title: "Owner & Lead Instructor",
   cta: {
     enabled: true,
-    label: "Read Recent Sermons",
-    href: "#contact",
+    label: "View Class Schedule",
+    href: "#classes",
   },
 };
 
 export const locationContactContent: LocationContactContent = {
   enabled: true,
-  eyebrow: "Plan Your Visit",
-  heading: "We'd Love to Meet You",
+  eyebrow: "Visit the Studio",
+  heading: "Come Dance With Us",
   intro:
-    "Have a question or planning to join us for the first time? Reach out — we'll save you a seat and help you feel right at home.",
+    "Have a question or ready to take your first class? Contact RhythmAddict or visit the studio in Rancho Cucamonga. We'll help you find the class that's right for you.",
   details: [
     {
       label: "Visit Us",
-      value: "142 Maple Grove Lane, Cedar Falls, IA 50613",
+      value: "9651 Business Center Drive, Building 15, Suite A, Rancho Cucamonga, CA",
     },
     {
-      label: "Sundays",
-      value: "9:00 AM & 11:00 AM",
+      label: "Class Times",
+      value: "View the class schedule for current days and times",
     },
     {
       label: "Call",
-      value: "(319) 555-0142",
+      value: "(909) 265-7647",
     },
     {
       label: "Email",
-      value: "hello@gracehollow.church",
+      value: "Dance@RhythmAddictDance.com",
     },
   ],
   button: {
     enabled: true,
     label: "Get Directions",
-    href: "https://maps.google.com",
+    href: "https://www.google.com/maps/place/RhythmAddict+Dance+Studio/@34.0978237,-117.594447,17z/data=!3m1!4b1!4m6!3m5!1s0x80c335bc808e8acd:0xe8cf41abce93ed50!8m2!3d34.0978237!4d-117.594447!16s%2Fg%2F1tf2y1y7?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D",
   },
 };
 

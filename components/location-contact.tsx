@@ -70,7 +70,7 @@ export function LocationContact({ content }: LocationContactProps) {
 
           <div className="overflow-hidden rounded-3xl border border-border shadow-sm">
             <iframe
-              title="Map showing the location of Grace Hollow Church"
+              title="Map showing the location of RhythmAddict Dance Studio"
               src="https://www.openstreetmap.org/export/embed.html?bbox=-92.46%2C42.49%2C-92.40%2C42.54&layer=mapnik"
               className="h-full min-h-[420px] w-full"
               loading="lazy"
