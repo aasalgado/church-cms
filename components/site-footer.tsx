@@ -1,4 +1,3 @@
-import { Church } from "lucide-react";
 import type { SiteFooterContent } from "@/content/site-content";
 
 interface SiteFooterProps {
@@ -12,14 +11,13 @@ export function SiteFooter({ content }: SiteFooterProps) {
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2">
-              <span className="flex size-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                <Church className="size-5" aria-hidden="true" />
-              </span>
-              <span className="font-serif text-xl font-semibold">
-                {content.brand.name}
-              </span>
+              <img
+                src="/branding/logo/rythm-addict-logo.png"
+                alt="RhythmAddict Dance Studio"
+                className="h-16 w-auto object-contain"
+              />
             </div>
-            <p className="mt-4 max-w-xs text-pretty leading-relaxed text-background/70">
+            <p className="mt-2 max-w-xs text-pretty leading-relaxed text-background/70">
               {content.description}
             </p>
           </div>

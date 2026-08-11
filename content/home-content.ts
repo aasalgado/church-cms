@@ -103,8 +103,8 @@ export const eventBannerContent: EventBannerContent = {
 export const studioIntroductionContent: StudioIntroductionContent = {
   enabled: true,
   image: {
-    src: "/welcome-gathering.png",
-    alt: "Members of the Grace Hollow community greeting one another after a service",
+    src: "/branding/photography/studio-community.png",
+    alt: "Students and instructors at RhythmAddict Dance Studio",
   },
   badge: {
     value: "25+",
@@ -232,8 +232,8 @@ export const locationContactContent: LocationContactContent = {
 export const heroContent: HeroContent = {
   enabled: true,
   image: {
-    src: "/hero-church.png",
-    alt: "Sunlight streaming through the windows of the Grace Hollow sanctuary",
+    src: "/branding/photography/hero-dance.png",
+    alt: "Dancers at RhythmAddict Dance Studio",
   },
   preHeading: "Adult Dance Studio • Rancho Cucamonga",
   headline: "Learn Salsa, Bachata & More in a Fun, Welcoming Community",
