@@ -57,7 +57,8 @@
 
 ### Sprint 3.4
 
-- [ ] Design System Implementation
+- [x] Color System (3.4.1)
+- [ ] Typography (3.4.2)
 
 ---
 

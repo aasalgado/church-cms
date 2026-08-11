@@ -332,3 +332,55 @@ All four visual changes were applied successfully. The production build passes. 
 **Next Sprint**
 
 Sprint 3.4 — Design System Implementation
+
+---
+
+## Sprint 3.4.1 — Color System
+
+### Status
+
+Completed
+
+### Goal
+
+Implement the approved RhythmAddict brand color palette using semantic CSS design tokens while preserving the existing component architecture and accessibility standards.
+
+### Completed
+
+- Implemented the approved RhythmAddict brand color palette
+- Updated all shared CSS design tokens using semantic color variables
+- Applied Brand Gold `#f0b429` as the primary interactive color
+- Applied Brand Black `#1a0a06` as the primary dark color and foreground
+- Applied Warm Cream `#fdf6ec` as the primary page and card background
+- Applied Warm Sand `#f5e8d0` as the secondary and muted section background
+- Updated all sidebar tokens to match the new palette
+- Preserved accessibility — all foreground/background pairings meet WCAG AA or AAA contrast requirements
+- Preserved the existing component architecture — no component files were modified
+- No new dependencies added
+- Verified the production build passes
+
+### Key Design Decisions
+
+- Semantic design tokens were updated rather than hardcoding colors in components, ensuring the palette change propagates consistently across the entire application.
+- `--primary-foreground` was changed from near-white to Brand Black, as black on gold provides significantly better contrast (~8.5:1) than the previous white on muted amber.
+- Brick Red `#7a2700` was intentionally deferred — the brand guide designates it for promotional highlights and component-level accents, which will be addressed in a later sprint.
+- Cropping the logo asset produced a better visual result than redesigning the Navbar or Footer.
+- Existing layouts were intentionally preserved to minimize risk during the color system rollout.
+
+### Lessons Learned
+
+- Small asset improvements (such as cropping transparent padding from the logo) can significantly improve the perceived quality of the UI without touching component code.
+- Establishing the color system before typography and component refinements reduces future rework — subsequent sprints can build on a stable palette.
+- Iterative visual validation helped determine appropriate logo sizing and spacing after the palette change.
+
+### Modified Files
+
+- `app/globals.css`
+
+### Outcome
+
+The approved brand color palette is fully implemented across the application via semantic design tokens. All foreground/background pairings maintain WCAG-compliant contrast. The production build passes successfully.
+
+**Next Sprint**
+
+Sprint 3.4.2 — Typography

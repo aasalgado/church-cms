@@ -14,7 +14,7 @@ Welcome to the project documentation.
 
 **Current Phase:** Phase 3 – Visual Rebrand
 
-**Current Sprint:** Sprint 3.4 — Design System Implementation
+**Current Sprint:** Sprint 3.4.2 — Typography
 
 ---
 
