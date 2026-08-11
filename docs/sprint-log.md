@@ -203,3 +203,132 @@ Replace the remaining church-themed Instructor and Contact content with verified
 **Next Phase**
 
 Phase 3 – Visual Rebrand
+
+---
+
+## Sprint 3.1 — Brand Direction & Visual Audit
+
+### Status
+
+Completed
+
+### Goal
+
+Perform a comprehensive visual and content audit of the existing site to identify all remaining church-themed elements, assess the current design system, and produce a prioritized improvement plan for Phase 3.
+
+### Completed
+
+- Audited all 9 sections plus global design system for church-themed content and visual issues
+- Identified the hero church image and Church icon as the highest-priority items
+- Produced a prioritized improvement list covering color, typography, photography, iconography, buttons, and cards
+- Established the recommended sprint order for Phase 3: Photography & Logo → Color Palette → Typography → Icons & Cards → Section Backgrounds & Buttons → Polish
+- Confirmed zero church references remaining in source files after Phase 2
+
+### Modified Files
+
+None — read-only audit sprint.
+
+### Outcome
+
+A complete, prioritized visual improvement plan was produced. All Phase 3 sprint work is grounded in the findings of this audit.
+
+**Next Sprint**
+
+Sprint 3.2 — Brand Foundation & Brand Guide
+
+---
+
+## Sprint 3.2 — Brand Foundation & Brand Guide
+
+### Status
+
+Completed
+
+### Goal
+
+Analyze the official RhythmAddict logo to extract the brand color palette, establish the approved design system, and document all design decisions in a formal brand guide.
+
+### Completed
+
+- Analyzed the official RhythmAddict logo pixel-by-pixel (1200×800 RGBA PNG)
+- Extracted exact brand colors from the logo: Brand Gold `#f0b429`, Brand Black `#1a0a06`, Brick Red `#7a2700`
+- Defined supporting palette colors: Warm Cream `#fdf6ec`, Warm Sand `#f5e8d0`
+- Established typography direction: replace Playfair Display with Plus Jakarta Sans for headings, retain Inter for body
+- Defined photography style, iconography guidance, button hierarchy, and card improvements
+- Documented 8 UI principles
+- Rewrote `docs/brand-guide.md` as the approved source of truth for all future UI decisions
+
+### Key Design Decisions
+
+- All brand colors are derived directly from the logo — no colors are invented.
+- Plus Jakarta Sans was selected as the heading font replacement because it communicates energy and modernity without the literary weight of Playfair Display.
+- The brand guide distinguishes between approved direction and completed implementation to prevent confusion during incremental sprints.
+
+### Lessons Learned
+
+- Deriving the palette from the logo rather than inventing new colors ensures visual coherence between the logo and the UI.
+- Documenting approved direction separately from completed work keeps the brand guide useful as a living reference throughout Phase 3.
+
+### Modified Files
+
+- `docs/brand-guide.md`
+
+### Outcome
+
+The approved design system is fully documented. All subsequent Phase 3 sprints have a clear, authoritative reference for every visual decision.
+
+**Next Sprint**
+
+Sprint 3.3 — Photography & Logo
+
+---
+
+## Sprint 3.3 — Photography & Logo
+
+### Status
+
+Completed
+
+### Goal
+
+Replace the Church icon in the Navbar and Footer with the official RhythmAddict logo, and add approved photography to the Hero and Studio Introduction sections while preserving the existing component architecture.
+
+### Completed
+
+- Replaced the Church icon in the Navbar with the official RhythmAddict logo
+- Replaced the Church icon in the Footer with the official RhythmAddict logo with a white CSS filter treatment
+- Added approved Hero photography
+- Added approved Studio Introduction photography
+- Updated all related image alt text
+- Optimized the official RhythmAddict logo by cropping excess transparent padding while preserving the original artwork
+- Adjusted logo sizing and spacing for improved visual balance
+- Preserved the existing component architecture
+- No new dependencies added
+- Verified the production build passes
+
+### Key Design Decisions
+
+- The cropped logo asset significantly improved the visual appearance of the Navbar and Footer without requiring any redesign of those components.
+- A CSS filter (`brightness(0) invert(1)`) was applied to the Footer logo to produce a white monochrome treatment on the dark background, avoiding the need for a separate light logo asset.
+- Photography assets were added through the content model, keeping presentation components unchanged.
+
+### Lessons Learned
+
+- Asset optimization (cropping transparent padding) can have a meaningful visual impact without touching component code.
+- CSS filters are a practical solution for logo color treatment when a dedicated light variant is not available.
+- Keeping image references in the content model rather than hardcoded in components preserves the CMS architecture.
+
+### Modified Files
+
+- `components/site-navbar.tsx`
+- `components/site-footer.tsx`
+- `content/home-content.ts`
+- `public/branding/logo/rythm-addict-logo.png` (optimized asset)
+
+### Outcome
+
+All four visual changes were applied successfully. The production build passes. Zero church references remain in source files.
+
+**Next Sprint**
+
+Sprint 3.4 — Design System Implementation

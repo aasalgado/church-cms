@@ -14,7 +14,7 @@ Welcome to the project documentation.
 
 **Current Phase:** Phase 3 – Visual Rebrand
 
-**Current Sprint:** Phase 3.1 – Brand Direction & Visual Audit
+**Current Sprint:** Sprint 3.4 — Design System Implementation
 
 ---
 

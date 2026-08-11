@@ -45,7 +45,19 @@
 
 ### Sprint 3.1
 
-- [ ] Brand Direction & Visual Audit
+- [x] Brand Direction & Visual Audit
+
+### Sprint 3.2
+
+- [x] Brand Foundation & Brand Guide
+
+### Sprint 3.3
+
+- [x] Photography & Logo
+
+### Sprint 3.4
+
+- [ ] Design System Implementation
 
 ---
 
