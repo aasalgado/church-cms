@@ -384,3 +384,49 @@ The approved brand color palette is fully implemented across the application via
 **Next Sprint**
 
 Sprint 3.4.2 — Typography
+
+---
+
+## Sprint 3.4.2 — Typography
+
+### Status
+
+Completed
+
+### Goal
+
+Implement the approved typography system from the Brand Guide while preserving the existing component architecture.
+
+### Completed
+
+- Replaced Playfair Display with Plus Jakarta Sans for all headings
+- Preserved Inter as the body font
+- Updated centralized typography tokens — no component-level changes required
+- Confirmed zero remaining Playfair Display or `--font-playfair` references in source files
+- Completed responsive validation across common breakpoints
+- Verified the production build passes
+
+### Key Design Decisions
+
+- Typography was implemented through shared design tokens rather than individual components, ensuring the change propagated globally without touching any component file.
+- The existing layout, font sizes, weights, and spacing were preserved — only the heading typeface changed.
+- Minor responsive spacing refinements identified during validation are deferred to the Component Refinement sprint.
+
+### Lessons Learned
+
+- Centralized typography tokens make global visual updates straightforward and low-risk.
+- Typography has a significant impact on perceived brand identity without requiring layout changes.
+- Responsive inspection should accompany every major visual change to catch spacing and layout issues early.
+
+### Modified Files
+
+- `app/layout.tsx`
+- `app/globals.css`
+
+### Outcome
+
+Typography implementation completed successfully. Plus Jakarta Sans is now the heading font across all sections. Inter remains the body font. The production build passes. The project advances to component refinement.
+
+**Next Sprint**
+
+Sprint 3.4.3 — Component Refinement

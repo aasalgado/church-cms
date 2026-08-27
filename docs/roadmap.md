@@ -58,7 +58,8 @@
 ### Sprint 3.4
 
 - [x] Color System (3.4.1)
-- [ ] Typography (3.4.2)
+- [x] Typography (3.4.2)
+- [ ] Component Refinement (3.4.3)
 
 ---
 
