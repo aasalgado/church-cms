@@ -1,11 +1,11 @@
-import { Clock, MapPin, Users } from "lucide-react";
+import { Drum, Heart, Music2 } from "lucide-react";
 import type { ClassScheduleContent } from "@/content/home-content";
 
 interface ClassScheduleProps {
   content: ClassScheduleContent;
 }
 
-const scheduleIcons = [Clock, Users, MapPin];
+const scheduleIcons = [Music2, Heart, Drum];
 
 export function ClassSchedule({ content }: ClassScheduleProps) {
   if (!content.enabled) {
@@ -34,7 +34,7 @@ export function ClassSchedule({ content }: ClassScheduleProps) {
             return (
               <div
                 key={`${item.title}-${index}`}
-                className="flex flex-col items-start rounded-2xl border border-border bg-card p-7 shadow-sm transition-shadow hover:shadow-md"
+                className="flex flex-col items-start rounded-2xl border border-border bg-card p-7 shadow-sm transition-all hover:bg-secondary hover:shadow-md border-t-[3px] border-t-primary"
               >
                 <span className="flex size-12 items-center justify-center rounded-full bg-accent text-accent-foreground">
                   <Icon className="size-6" aria-hidden="true" />

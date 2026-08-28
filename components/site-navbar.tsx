@@ -24,7 +24,7 @@ export function SiteNavbar({ content }: SiteNavbarProps) {
         </a>
 
         <nav
-          className="hidden items-center gap-8 md:flex"
+          className="hidden items-center gap-4 md:flex lg:gap-8"
           aria-label="Main navigation"
         >
           {content.navigation.map((link) => (
@@ -42,7 +42,7 @@ export function SiteNavbar({ content }: SiteNavbarProps) {
           <Button
             nativeButton={false}
             render={<a href={content.primaryCta.href} />}
-            className="rounded-full px-6"
+            className="rounded-full px-4 lg:px-6"
           >
             {content.primaryCta.label}
           </Button>

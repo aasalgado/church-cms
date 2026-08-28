@@ -1,11 +1,11 @@
-import { Baby, BookOpen, HandHeart, Heart, Music, Users } from "lucide-react";
+import { Drum, Heart, Music2, Sparkles } from "lucide-react";
 import type { DanceStylesContent } from "@/content/home-content";
 
 interface DanceStylesProps {
   content: DanceStylesContent;
 }
 
-const danceStyleIcons = [Baby, Users, BookOpen, Music, HandHeart, Heart];
+const danceStyleIcons = [Music2, Heart, Drum, Sparkles];
 
 export function DanceStyles({ content }: DanceStylesProps) {
   if (!content.enabled) {
@@ -27,16 +27,16 @@ export function DanceStyles({ content }: DanceStylesProps) {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {content.styles.map((style, index) => {
             const Icon = danceStyleIcons[index % danceStyleIcons.length] ?? Heart;
 
             return (
               <div
                 key={`${style.title}-${index}`}
-                className="group rounded-2xl border border-border bg-card p-7 transition-colors hover:border-primary/40"
+                className="group rounded-2xl border border-border bg-card p-7 transition-all hover:bg-secondary hover:border-primary/40"
               >
-                <span className="flex size-12 items-center justify-center rounded-xl bg-accent text-accent-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                <span className="flex size-12 items-center justify-center rounded-full bg-accent text-accent-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <Icon className="size-6" aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 font-serif text-xl font-semibold text-foreground">
