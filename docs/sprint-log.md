@@ -430,3 +430,68 @@ Typography implementation completed successfully. Plus Jakarta Sans is now the h
 **Next Sprint**
 
 Sprint 3.4.3 — Component Refinement
+
+---
+
+## Sprint 3.4.3 — Component Refinement
+
+### Status
+
+Completed
+
+### Outcome
+
+Completed as Sprint 3.5 — Design System Implementation. See Sprint 3.5 entry below.
+
+---
+
+## Sprint 3.5 — Design System Implementation
+
+### Status
+
+Completed
+
+### Goal
+
+Implement the approved design system refinements from the Brand Guide while preserving the existing architecture.
+
+### Completed
+
+- Improved responsive navbar spacing for tablet layouts
+- Refined primary and outline button styling per Brand Guide hierarchy
+- Added Brand Gold accent borders to Class Schedule cards
+- Added warm hover states to Class Schedule and Dance Styles cards
+- Standardized icon containers to rounded-full across both card sections
+- Replaced generic and church-inherited icons with dance-themed Lucide icons
+- Updated the Cumbia icon from Zap to Drum for improved semantic meaning
+- Balanced the Dance Styles layout with a responsive 2×2 grid
+- Preserved existing component architecture throughout
+- Verified the production build passes
+
+### Key Design Decisions
+
+- Lucide React remains the single icon library — no new dependencies were added. All required icons were available in the installed version.
+- Icons were selected based on dance semantics: Music2 for Salsa (rhythm), Heart for Bachata (romantic partner dance), Drum for Cumbia (percussion-driven), and Sparkles for Ballroom & Swing (elegant, celebratory).
+- All design refinements were implemented through Tailwind class changes rather than component rewrites, preserving the existing architecture and keeping changes minimal and reversible.
+- The Dance Styles grid was changed from `sm:grid-cols-2 lg:grid-cols-3` to `sm:grid-cols-2` to produce a balanced 2×2 layout at desktop widths, replacing the uneven 3+1 arrangement.
+
+### Lessons Learned
+
+- Small UI refinements — accent borders, hover states, icon updates — significantly improve the perceived quality and brand coherence of the UI without requiring structural changes.
+- Consistent iconography across related sections (Class Schedule and Dance Styles sharing the same icon set) strengthens visual identity and reduces cognitive load.
+- Responsive polish is best evaluated after core visual changes (color, typography) are in place, as earlier changes can mask or introduce spacing issues.
+
+### Modified Files
+
+- `components/site-navbar.tsx`
+- `components/ui/button.tsx`
+- `components/class-schedule.tsx`
+- `components/dance-styles.tsx`
+
+### Outcome
+
+All approved component refinements were applied successfully. The design system is now fully implemented across the application. No architectural changes were introduced. The production build passes.
+
+**Next Sprint**
+
+Sprint 3.6 — Responsive QA & Final Visual Polish
