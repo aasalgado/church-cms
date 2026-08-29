@@ -495,3 +495,54 @@ All approved component refinements were applied successfully. The design system 
 **Next Sprint**
 
 Sprint 3.6 — Responsive QA & Final Visual Polish
+
+---
+
+## Sprint 3.6 — Responsive QA & Final Visual Polish
+
+### Status
+
+Completed
+
+### Goal
+
+Perform a comprehensive code-based audit across all components and viewports, apply all approved fixes, and confirm the codebase is clean of stale assets and legacy references.
+
+### Completed
+
+- Performed full code-based audit across all 9 sections and global files
+- Identified and categorized findings by severity (Critical / High / Medium / Low / Nice-to-have)
+- Deleted 8 unreferenced public assets: `hero-church.png`, `pastor.png`, `placeholder-logo.png`, `placeholder-logo.svg`, `placeholder-user.jpg`, `placeholder.jpg`, `placeholder.svg`, `welcome-gathering.png`
+- Fixed stale `?? Clock` fallback in `class-schedule.tsx` — changed to `?? Music2` (Clock was never imported)
+- Fixed invisible card hover in `class-schedule.tsx` — changed `hover:bg-secondary` to `hover:bg-accent/40` (section background is `bg-secondary`; hover was invisible)
+- Added `w-full sm:w-auto` to both Hero CTA buttons for correct mobile stacking behavior
+- Removed stale `generator: 'v0.app'` metadata from `app/layout.tsx`
+- Confirmed zero source-file references to all 8 deleted assets
+- Confirmed zero church/Grace Hollow references in source files
+- Verified the production build passes
+
+### Key Design Decisions
+
+- Navbar and footer logo size (`h-16`) was intentionally preserved — visually tested and approved after logo crop.
+- Footer logo CSS filter was intentionally omitted — visually tested and approved.
+- Hero secondary CTA outline override (`border-background/40`, `hover:bg-background/10`) was intentionally preserved as a dark-overlay-specific exception.
+- Studio Introduction badge position (`-bottom-6 -right-2`) was deferred for separate review.
+
+### Deferred Items
+
+- Studio Introduction badge position — user reviewing separately
+- Footer contact grouping — requires content model change
+- Class Schedule 2+1 tablet grid — deferred
+- Instructor section `id` anchor — deferred
+- Skip-navigation link — deferred
+
+### Modified Files
+
+- `public/` — deleted 8 unreferenced assets
+- `components/class-schedule.tsx`
+- `components/hero-section.tsx`
+- `app/layout.tsx`
+
+### Outcome
+
+All approved fixes were applied successfully. The production build passes, all identified stale public assets were removed, and no church/Grace Hollow references remain in source files. Sprint 3.6 is complete.

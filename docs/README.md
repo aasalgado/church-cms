@@ -14,7 +14,7 @@ Welcome to the project documentation.
 
 **Current Phase:** Phase 3 – Visual Rebrand
 
-**Current Sprint:** Sprint 3.6 — Responsive QA & Final Visual Polish
+**Current Sprint:** Sprint 3.6 — Responsive QA & Final Visual Polish (Completed)
 
 ---
 

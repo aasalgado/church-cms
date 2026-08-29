@@ -67,7 +67,7 @@
 
 ### Sprint 3.6
 
-- [ ] Responsive QA & Final Visual Polish
+- [x] Responsive QA & Final Visual Polish
 
 ---
 
