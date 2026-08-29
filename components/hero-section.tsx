@@ -38,7 +38,7 @@ export function HeroSection({ content }: HeroSectionProps) {
               nativeButton={false}
               render={<a href={content.primaryCta.href} />}
               size="lg"
-              className="rounded-full px-8 text-base"
+              className="w-full rounded-full px-8 text-base sm:w-auto"
             >
               {content.primaryCta.label}
             </Button>
@@ -49,7 +49,7 @@ export function HeroSection({ content }: HeroSectionProps) {
               render={<a href={content.secondaryCta.href} />}
               size="lg"
               variant="outline"
-              className="rounded-full border-background/40 bg-transparent px-8 text-base text-background hover:bg-background/10 hover:text-background"
+              className="w-full rounded-full border-background/40 bg-transparent px-8 text-base text-background hover:bg-background/10 hover:text-background sm:w-auto"
             >
               {content.secondaryCta.label}
             </Button>

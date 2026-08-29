@@ -29,12 +29,12 @@ export function ClassSchedule({ content }: ClassScheduleProps) {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {content.classes.map((item, index) => {
-            const Icon = scheduleIcons[index % scheduleIcons.length] ?? Clock;
+            const Icon = scheduleIcons[index % scheduleIcons.length] ?? Music2;
 
             return (
               <div
                 key={`${item.title}-${index}`}
-                className="flex flex-col items-start rounded-2xl border border-border bg-card p-7 shadow-sm transition-all hover:bg-secondary hover:shadow-md border-t-[3px] border-t-primary"
+                className="flex flex-col items-start rounded-2xl border border-border bg-card p-7 shadow-sm transition-all hover:bg-accent/40 hover:shadow-md border-t-[3px] border-t-primary"
               >
                 <span className="flex size-12 items-center justify-center rounded-full bg-accent text-accent-foreground">
                   <Icon className="size-6" aria-hidden="true" />

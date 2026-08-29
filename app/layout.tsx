@@ -17,7 +17,6 @@ export const metadata: Metadata = {
   title: 'RhythmAddict Dance Studio | Salsa, Bachata & Cumbia in Rancho Cucamonga',
   description:
     "Learn Salsa, Bachata, Cumbia, and couples' Ballroom and Swing at RhythmAddict Dance Studio in Rancho Cucamonga. Beginner-friendly adult classes, private lessons, and a welcoming dance community.",
-  generator: 'v0.app',
   icons: {
     icon: [
       {
