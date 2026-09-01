@@ -6,7 +6,7 @@ Welcome to the project documentation.
 
 - Product Handbook
 - Roadmap
-- Sprint Log
+- Sprint Log (see `docs/sprint-log/README.md`)
 - Architecture Decisions
 - Meeting Notes
 
