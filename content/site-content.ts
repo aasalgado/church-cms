@@ -1,46 +1,13 @@
-export interface LinkContent {
-  label: string;
-  href: string;
-}
-
-export interface SiteBrandContent {
-  name: string;
-  href: string;
-}
-
-export interface SiteCtaContent {
-  label: string;
-  href: string;
-}
-
-export interface LinkContent {
-  label: string;
-  href: string;
-}
-
-export interface SiteFooterSectionContent {
-  heading: string;
-  links: LinkContent[];
-}
-
-export interface SiteFooterContactContent {
-  heading: string;
-  items: string[];
-}
-
-export interface SiteFooterContent {
-  brand: SiteBrandContent;
-  description: string;
-  explore: SiteFooterSectionContent;
-  connect: SiteFooterContactContent;
-  copyright: string;
-}
-
-export interface SiteContent {
-  brand: SiteBrandContent;
-  navigation: LinkContent[];
-  primaryCta: SiteCtaContent;
-}
+import type {
+  SiteContent,
+  SiteFooterContent,
+  SiteBrandContent,
+} from "@/lib/schemas";
+export type {
+  SiteContent,
+  SiteFooterContent,
+  SiteBrandContent,
+} from "@/lib/schemas";
 
 export const siteFooterContent: SiteFooterContent = {
   brand: {

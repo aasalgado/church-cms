@@ -1,103 +1,29 @@
-export interface CtaContent {
-  enabled: boolean;
-  label: string;
-  href: string;
-}
-
-export interface EventBannerContent {
-  enabled: boolean;
-  title: string;
-  message: string;
-}
-
-export interface StudioIntroductionContent {
-  enabled: boolean;
-  image: {
-    src: string;
-    alt: string;
-  };
-  badge: {
-    value: string;
-    label: string;
-  };
-  eyebrow: string;
-  headline: string;
-  paragraphs: string[];
-  quote: string;
-}
-
-export interface ClassScheduleItem {
-  title: string;
-  time: string;
-  description: string;
-}
-
-export interface ClassScheduleContent {
-  enabled: boolean;
-  eyebrow: string;
-  heading: string;
-  intro: string;
-  classes: ClassScheduleItem[];
-}
-
-export interface DanceStyleItem {
-  title: string;
-  description: string;
-}
-
-export interface DanceStylesContent {
-  enabled: boolean;
-  eyebrow: string;
-  heading: string;
-  intro: string;
-  styles: DanceStyleItem[];
-}
-
-export interface InstructorContent {
-  enabled: boolean;
-  image: {
-    src: string;
-    alt: string;
-  };
-  eyebrow: string;
-  heading: string;
-  paragraphs: string[];
-  name: string;
-  title: string;
-  cta: CtaContent;
-}
-
-export interface ContactDetail {
-  label: string;
-  value: string;
-}
-
-export interface LocationContactContent {
-  enabled: boolean;
-  eyebrow: string;
-  heading: string;
-  intro: string;
-  details: ContactDetail[];
-  button: CtaContent;
-}
-
-export interface HeroContent {
-  enabled: boolean;
-  image: {
-    src: string;
-    alt: string;
-  };
-  preHeading: string;
-  headline: string;
-  copy: string;
-  primaryCta: CtaContent;
-  secondaryCta: CtaContent;
-}
+import type {
+  CtaContent,
+  EventBannerContent,
+  StudioIntroductionContent,
+  ClassScheduleContent,
+  DanceStylesContent,
+  InstructorContent,
+  LocationContactContent,
+  HeroContent,
+} from "@/lib/schemas";
+export type {
+  CtaContent,
+  EventBannerContent,
+  StudioIntroductionContent,
+  ClassScheduleContent,
+  DanceStylesContent,
+  InstructorContent,
+  LocationContactContent,
+  HeroContent,
+} from "@/lib/schemas";
 
 export const eventBannerContent: EventBannerContent = {
   enabled: true,
   title: "Friday Night Social",
-  message: "Join us for an evening of Salsa, Bachata, and Cumbia. All levels are welcome.",
+  message:
+    "Join us for an evening of Salsa, Bachata, and Cumbia. All levels are welcome.",
 };
 
 export const studioIntroductionContent: StudioIntroductionContent = {
@@ -207,7 +133,8 @@ export const locationContactContent: LocationContactContent = {
   details: [
     {
       label: "Visit Us",
-      value: "9651 Business Center Drive, Building 15, Suite A, Rancho Cucamonga, CA",
+      value:
+        "9651 Business Center Drive, Building 15, Suite A, Rancho Cucamonga, CA",
     },
     {
       label: "Class Times",
