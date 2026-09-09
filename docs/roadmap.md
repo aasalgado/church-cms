@@ -95,7 +95,11 @@
 
 ### Sprint 4.2
 
-- [ ] Contracts & Runtime Schemas — Active
+- [x] Contracts & Runtime Schemas — Completed
+
+### Sprint 4.3
+
+- [ ] ContentService Abstraction & API Adapter — Active
 
 ### Sprint 4.3
 

@@ -155,6 +155,30 @@ Future architecture decisions and ADRs will be appended here as Phase 4 progress
 
 ---
 
+## Contracts & Runtime Schemas (Sprint 4.2)
+
+### Summary
+
+Sprint 4.2 introduced a Zod-first contracts strategy: runtime validation schemas are now the single source of truth for CMS content shapes. The primary implementation lives under `lib/schemas/` and complements the approved DynamoDB item model described above.
+
+### Key points
+
+- **Runtime library:** Zod is used for runtime validation of content payloads.
+- **Schemas as source-of-truth:** Each editable section has a corresponding Zod schema (hero, event-banner, studio-introduction, class-schedule, dance-styles, instructor, location-contact, navbar, footer).
+- **Type inference:** TypeScript types are derived from schemas using `z.infer` and re-exported so existing import paths and type names remain compatible with components (`content/home-content.ts`, `content/site-content.ts`).
+- **Shared primitives:** Shared schemas (`NonEmptyString`, `Href`, `ImageSchema`, `CtaSchema`, `LinkSchema`, `Timestamp`) centralize common validation rules (e.g., non-empty strings, href rules, image src rules, datetime format).
+- **SectionSchemas mapping:** A `SectionSchemas` mapping is provided to programmatically resolve a `sectionId` to its Zod schema for use by validators or API handlers.
+- **Metadata schema:** `CmsContentMetadataSchema` models the approved v1 metadata fields: `sectionId`, `version`, `lastEditedAt`, `lastEditedBy`, `publishedAt`, `publishedBy` (timestamps applied as optional at the field level).
+- **No backend wiring yet:** Sprint 4.2 only implements schemas and type inference — no API routes, Lambdas, or DynamoDB integration were added as part of this sprint.
+- **Build & type-check:** Local verification shows `npm run build` and `npx tsc --noEmit` pass with the new schemas in place.
+
+### Usage guidance
+
+- Future API/Lambda handlers should validate incoming payloads against the corresponding Zod schema before persisting to DynamoDB. Use `schema.parse()` or `schema.safeParse()` to validate and return structured errors.
+- Keep the Zod schema directory (`lib/schemas/`) as the authoritative place for content shape changes; update schemas first, then derive TypeScript types via `z.infer` and re-export for consumers.
+
+---
+
 ## Future Expansion (deferred)
 
 The following features are intentionally deferred for later phases and will receive separate architecture work:

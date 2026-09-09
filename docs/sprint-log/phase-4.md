@@ -4,9 +4,34 @@
 
 ## Sprint 4.1 — Backend Architecture
 
+---
+
+## Sprint 4.2 — Contracts & Runtime Schemas
+
 ### Status
 
 Completed
+
+### Goal
+
+Introduce runtime validation and a single source-of-truth for CMS content shapes so the backend migration can rely on validated, versioned payloads.
+
+### Completed
+
+- Added Zod as the runtime schema library (code under `lib/schemas/`).
+- Implemented Zod-first schemas for each editable section (hero, event-banner, studio-introduction, class-schedule, dance-styles, instructor, location-contact, navbar, footer).
+- Exported TypeScript types inferred with `z.infer` and preserved existing type names via re-exports in `content/home-content.ts` and `content/site-content.ts` for compatibility with existing consumers.
+- Added shared schema primitives (`NonEmptyString`, `Href`, `ImageSchema`, `CtaSchema`, `LinkSchema`, `Timestamp`) to enforce consistent validation rules across sections.
+- Created `SectionSchemas` mapping that associates `sectionId` keys to their Zod schema for programmatic lookup.
+- Added `CmsContentMetadataSchema` with approved v1 metadata fields: `sectionId`, `version`, `lastEditedAt`, `lastEditedBy`, `publishedAt`, `publishedBy` (timestamps applied as optional at the field level).
+- Ensured no API/Lambda/DynamoDB/AWS wiring or publish workflows were implemented in this sprint.
+- Did not introduce a test framework in this sprint.
+- Verified local build and type-check: `npm run build` and `npx tsc --noEmit` pass in your environment.
+
+### Notes & Follow-ups
+
+- The Zod schemas are the authoritative source for content shapes going forward. Any future API or Lambda should validate payloads against these schemas before persisting to DynamoDB.
+- Small schema consistency items may be addressed in follow-up patches (for example aligning all link `href` fields to use the shared `Href` schema). Those changes are minor and were intentionally limited during this sprint.
 
 ### Goal
 
