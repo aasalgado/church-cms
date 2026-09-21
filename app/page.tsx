@@ -7,18 +7,21 @@ import { DanceStyles } from "@/components/dance-styles";
 import { InstructorSection } from "@/components/instructor-section";
 import { LocationContact } from "@/components/location-contact";
 import { SiteFooter } from "@/components/site-footer";
-import {
-  eventBannerContent,
-  heroContent,
-  locationContactContent,
-  danceStylesContent,
-  instructorContent,
-  classScheduleContent,
-  studioIntroductionContent,
-} from "@/content/home-content";
-import { siteContent, siteFooterContent } from "@/content/site-content";
+import contentService from "@/lib/content-service";
 
-export default function Page() {
+export default async function Page() {
+  const all = await contentService.getAllPublished();
+
+  const eventBannerContent = all["event-banner"];
+  const heroContent = all.hero;
+  const locationContactContent = all["location-contact"];
+  const danceStylesContent = all["dance-styles"];
+  const instructorContent = all.instructor;
+  const classScheduleContent = all["class-schedule"];
+  const studioIntroductionContent = all["studio-introduction"];
+  const siteContent = all.navbar;
+  const siteFooterContent = all.footer;
+
   return (
     <div className="min-h-screen bg-background">
       <EventBanner content={eventBannerContent} />
