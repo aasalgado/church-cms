@@ -177,6 +177,18 @@ Sprint 4.2 introduced a Zod-first contracts strategy: runtime validation schemas
 - Future API/Lambda handlers should validate incoming payloads against the corresponding Zod schema before persisting to DynamoDB. Use `schema.parse()` or `schema.safeParse()` to validate and return structured errors.
 - Keep the Zod schema directory (`lib/schemas/`) as the authoritative place for content shape changes; update schemas first, then derive TypeScript types via `z.infer` and re-export for consumers.
 
+### Service boundary (Sprint 4.3)
+
+Sprint 4.3 added a minimal async `ContentService` boundary to decouple content consumers from the local data source implementation. Key points:
+
+- **Service abstraction:** `lib/content-service.ts` implements a typed `ContentService` with two read operations: `getPublished<K extends SectionId>(sectionId: K)` and `getAllPublished()`.
+- **Typed mapping:** `ContentMap` / `ContentFor<K>` typings map each `sectionId` to its corresponding Zod-inferred TypeScript type so callers receive strongly typed payloads (e.g., `getPublished('hero')` returns `HeroContent`).
+- **Local source:** The current `ContentService` uses `LOCAL_CONTENT` (backed by `content/home-content.ts` and `content/site-content.ts`) as the temporary source. This keeps the runtime behavior unchanged while providing a single swap point for a future API adapter.
+- **Page & admin wiring:** `app/page.tsx` now loads published content via `contentService.getAllPublished()` (server-side) and the admin UI uses a server wrapper (`app/admin/page.tsx`) to load initial content with `contentService.getPublished(...)` before rendering the unchanged client editor (`app/admin/page.client.tsx`).
+- **Boundaries:** No persistence, publish, API adapter, or AWS integration was implemented in Sprint 4.3; runtime Zod validation was not added in this sprint and will be introduced when external/API content is consumed.
+
+This service boundary makes migrating to a network-backed adapter straightforward: future work can replace the local `ContentService` implementation or introduce an adapter that performs network requests and Zod validation, without changing presentational components or editor behavior.
+
 ---
 
 ## Future Expansion (deferred)

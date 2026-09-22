@@ -99,11 +99,11 @@
 
 ### Sprint 4.3
 
-- [ ] ContentService Abstraction & API Adapter — Active
+- [x] ContentService Abstraction & API Adapter — Completed
 
-### Sprint 4.3
+### Sprint 4.4
 
-- [ ] ContentService Abstraction & API Adapter
+- [ ] Read-Only AWS Backend — Active
 
 ### Sprint 4.4
 
