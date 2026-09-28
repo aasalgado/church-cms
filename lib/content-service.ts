@@ -60,8 +60,6 @@ export const contentService: ContentService = {
   async getPublished<K extends SectionId>(
     sectionId: K,
   ): Promise<ContentFor<K>> {
-    // Promise<ContentFor<K>> = what this function promises to return.
-
     return LOCAL_CONTENT[sectionId] as ContentFor<K>;
     // `as ContentFor<K>` = tells TypeScript that this particular
     // LOCAL_CONTENT lookup satisfies that promised return type.

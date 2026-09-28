@@ -1,0 +1,81 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: SAM template for Sprint 4.4 read-only CMS API (do not deploy without review).
+
+Globals:
+  Function:
+    Timeout: 10
+    MemorySize: 256
+
+Resources:
+  CmsContentTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: CmsContent
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: sectionId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: sectionId
+          KeyType: HASH
+
+  ContentReadFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: content-read-function
+      Handler: handler.handler
+      Runtime: nodejs24.x
+      CodeUri: ../services/content-read/dist/
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:BatchGetItem
+              Resource: !GetAtt CmsContentTable.Arn
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref CmsContentTable
+
+  ContentApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: dev
+      Name: cms-content-api
+      Cors: False
+      DefinitionBody:
+        openapi: 3.0.1
+        info:
+          title: CMS Content API
+          version: 1.0.0
+        paths:
+          /content:
+            get:
+              x-amazon-apigateway-integration:
+                uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContentReadFunction.Arn}/invocations
+                passthroughBehavior: WHEN_NO_MATCH
+                httpMethod: POST
+                type: aws_proxy
+          /content/{sectionId}:
+            get:
+              parameters:
+                - name: sectionId
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+              x-amazon-apigateway-integration:
+                uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContentReadFunction.Arn}/invocations
+                passthroughBehavior: WHEN_NO_MATCH
+                httpMethod: POST
+                type: aws_proxy
+
+Outputs:
+  ApiUrl:
+    Description: "API base URL (invoke after deploy)"
+    Value: !Sub "https://${ContentApi}.execute-api.${AWS::Region}.amazonaws.com/dev"
+  TableName:
+    Description: "CmsContent table name"
+    Value: !Ref CmsContentTable
