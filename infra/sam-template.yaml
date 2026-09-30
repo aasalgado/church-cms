@@ -44,7 +44,6 @@ Resources:
     Properties:
       StageName: dev
       Name: cms-content-api
-      Cors: False
       DefinitionBody:
         openapi: 3.0.1
         info:
