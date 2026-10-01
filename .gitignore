@@ -15,3 +15,4 @@ node_modules
 *.tsbuildinfo
 .DS_Store
 services/content-read/dist/
+.aws-sam/
