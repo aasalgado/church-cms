@@ -1,3 +1,406 @@
 {
-  "items": []
+  "items": [
+    {
+      "sectionId": "event-banner",
+      "version": 1,
+      "draft": {
+        "enabled": true,
+        "title": "Friday Night Social",
+        "message": "Join us for an evening of Salsa, Bachata, and Cumbia. All levels are welcome."
+      },
+      "published": {
+        "enabled": true,
+        "title": "Friday Night Social",
+        "message": "Join us for an evening of Salsa, Bachata, and Cumbia. All levels are welcome."
+      },
+      "lastEditedAt": "2026-10-02T00:00:00Z",
+      "lastEditedBy": "migration:initial-seed",
+      "publishedAt": "2026-10-02T00:00:00Z",
+      "publishedBy": "migration:initial-seed"
+    },
+    {
+      "sectionId": "hero",
+      "version": 1,
+      "draft": {
+        "enabled": true,
+        "image": {
+          "src": "/branding/photography/hero-dance.png",
+          "alt": "Dancers at RhythmAddict Dance Studio"
+        },
+        "preHeading": "Adult Dance Studio • Rancho Cucamonga",
+        "headline": "Learn Salsa, Bachata & More in a Fun, Welcoming Community",
+        "copy": "Whether you're taking your very first dance class or looking to grow your social dancing skills, RhythmAddict offers welcoming instruction, supportive instructors, and a community you'll love being part of.",
+        "primaryCta": {
+          "enabled": true,
+          "label": "View Class Schedule",
+          "href": "#classes"
+        },
+        "secondaryCta": {
+          "enabled": true,
+          "label": "Learn More",
+          "href": "#welcome"
+        }
+      },
+      "published": {
+        "enabled": true,
+        "image": {
+          "src": "/branding/photography/hero-dance.png",
+          "alt": "Dancers at RhythmAddict Dance Studio"
+        },
+        "preHeading": "Adult Dance Studio • Rancho Cucamonga",
+        "headline": "Learn Salsa, Bachata & More in a Fun, Welcoming Community",
+        "copy": "Whether you're taking your very first dance class or looking to grow your social dancing skills, RhythmAddict offers welcoming instruction, supportive instructors, and a community you'll love being part of.",
+        "primaryCta": {
+          "enabled": true,
+          "label": "View Class Schedule",
+          "href": "#classes"
+        },
+        "secondaryCta": {
+          "enabled": true,
+          "label": "Learn More",
+          "href": "#welcome"
+        }
+      },
+      "lastEditedAt": "2026-10-02T00:00:00Z",
+      "lastEditedBy": "migration:initial-seed",
+      "publishedAt": "2026-10-02T00:00:00Z",
+      "publishedBy": "migration:initial-seed"
+    },
+    {
+      "sectionId": "studio-introduction",
+      "version": 1,
+      "draft": {
+        "enabled": true,
+        "image": {
+          "src": "/branding/photography/studio-community.png",
+          "alt": "Students and instructors at RhythmAddict Dance Studio"
+        },
+        "badge": { "value": "25+", "label": "Years serving our town" },
+        "eyebrow": "Everyone Starts Somewhere",
+        "headline": "Discover the Joy of Social Dancing",
+        "paragraphs": [
+          "Whether you've never danced before or you're looking to build on your experience, RhythmAddict is a place where you can learn, grow, and have fun.",
+          "Our classes are designed to help you build confidence, meet new people, and enjoy every step of your dance journey. With supportive instructors and a welcoming community, you'll feel comfortable from your very first class."
+        ],
+        "quote": "The first step is showing up. We'll help you find the rhythm."
+      },
+      "published": {
+        "enabled": true,
+        "image": {
+          "src": "/branding/photography/studio-community.png",
+          "alt": "Students and instructors at RhythmAddict Dance Studio"
+        },
+        "badge": { "value": "25+", "label": "Years serving our town" },
+        "eyebrow": "Everyone Starts Somewhere",
+        "headline": "Discover the Joy of Social Dancing",
+        "paragraphs": [
+          "Whether you've never danced before or you're looking to build on your experience, RhythmAddict is a place where you can learn, grow, and have fun.",
+          "Our classes are designed to help you build confidence, meet new people, and enjoy every step of your dance journey. With supportive instructors and a welcoming community, you'll feel comfortable from your very first class."
+        ],
+        "quote": "The first step is showing up. We'll help you find the rhythm."
+      },
+      "lastEditedAt": "2026-10-02T00:00:00Z",
+      "lastEditedBy": "migration:initial-seed",
+      "publishedAt": "2026-10-02T00:00:00Z",
+      "publishedBy": "migration:initial-seed"
+    },
+    {
+      "sectionId": "class-schedule",
+      "version": 1,
+      "draft": {
+        "enabled": true,
+        "eyebrow": "Find Your Rhythm",
+        "heading": "Choose Your Class and Start Dancing",
+        "intro": "Whether you're taking your first steps or continuing your dance journey, we offer welcoming classes designed to help you build confidence, improve your skills, and enjoy social dancing.",
+        "classes": [
+          {
+            "title": "Salsa",
+            "time": "Tuesdays & Thursdays • 7:00 PM",
+            "description": "Build a strong foundation in Salsa while developing timing, partner connection, and confidence."
+          },
+          {
+            "title": "Bachata",
+            "time": "Mondays & Wednesdays • 7:00 PM",
+            "description": "Learn the fundamentals of Bachata in a fun and welcoming environment designed for all experience levels."
+          },
+          {
+            "title": "Cumbia",
+            "time": "Mondays • 7:30 PM",
+            "description": "Enjoy one of the most popular social dances with easy-to-follow instruction and great music."
+          }
+        ]
+      },
+      "published": {
+        "enabled": true,
+        "eyebrow": "Find Your Rhythm",
+        "heading": "Choose Your Class and Start Dancing",
+        "intro": "Whether you're taking your first steps or continuing your dance journey, we offer welcoming classes designed to help you build confidence, improve your skills, and enjoy social dancing.",
+        "classes": [
+          {
+            "title": "Salsa",
+            "time": "Tuesdays & Thursdays • 7:00 PM",
+            "description": "Build a strong foundation in Salsa while developing timing, partner connection, and confidence."
+          },
+          {
+            "title": "Bachata",
+            "time": "Mondays & Wednesdays • 7:00 PM",
+            "description": "Learn the fundamentals of Bachata in a fun and welcoming environment designed for all experience levels."
+          },
+          {
+            "title": "Cumbia",
+            "time": "Mondays • 7:30 PM",
+            "description": "Enjoy one of the most popular social dances with easy-to-follow instruction and great music."
+          }
+        ]
+      },
+      "lastEditedAt": "2026-10-02T00:00:00Z",
+      "lastEditedBy": "migration:initial-seed",
+      "publishedAt": "2026-10-02T00:00:00Z",
+      "publishedBy": "migration:initial-seed"
+    },
+    {
+      "sectionId": "dance-styles",
+      "version": 1,
+      "draft": {
+        "enabled": true,
+        "eyebrow": "Dance Styles",
+        "heading": "Find the Style That's Right for You",
+        "intro": "Every dance has its own personality. Explore the styles we teach and discover the one that inspires you to get on the dance floor.",
+        "styles": [
+          {
+            "title": "Salsa",
+            "description": "Energetic partner dancing focused on musicality, footwork, and social dancing."
+          },
+          {
+            "title": "Bachata",
+            "description": "A fun and approachable Latin dance that emphasizes rhythm, connection, and smooth partner movement."
+          },
+          {
+            "title": "Cumbia",
+            "description": "An easy-to-learn social dance that's perfect for beginners and enjoyable for dancers of all levels."
+          },
+          {
+            "title": "Ballroom & Swing",
+            "description": "Classic partner dances that build confidence for weddings, parties, and social events."
+          }
+        ]
+      },
+      "published": {
+        "enabled": true,
+        "eyebrow": "Dance Styles",
+        "heading": "Find the Style That's Right for You",
+        "intro": "Every dance has its own personality. Explore the styles we teach and discover the one that inspires you to get on the dance floor.",
+        "styles": [
+          {
+            "title": "Salsa",
+            "description": "Energetic partner dancing focused on musicality, footwork, and social dancing."
+          },
+          {
+            "title": "Bachata",
+            "description": "A fun and approachable Latin dance that emphasizes rhythm, connection, and smooth partner movement."
+          },
+          {
+            "title": "Cumbia",
+            "description": "An easy-to-learn social dance that's perfect for beginners and enjoyable for dancers of all levels."
+          },
+          {
+            "title": "Ballroom & Swing",
+            "description": "Classic partner dances that build confidence for weddings, parties, and social events."
+          }
+        ]
+      },
+      "lastEditedAt": "2026-10-02T00:00:00Z",
+      "lastEditedBy": "migration:initial-seed",
+      "publishedAt": "2026-10-02T00:00:00Z",
+      "publishedBy": "migration:initial-seed"
+    },
+    {
+      "sectionId": "instructor",
+      "version": 1,
+      "draft": {
+        "enabled": true,
+        "image": {
+          "src": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/MGyH4kHfwqGY581rV9FX/media/6a2a61d361b1ee5d887aadc4.jpg",
+          "alt": "Esther, owner and lead instructor at RhythmAddict Dance Studio"
+        },
+        "eyebrow": "Meet Your Instructor",
+        "heading": "Helping You Find Confidence on the Dance Floor",
+        "paragraphs": [
+          "Esther is the owner and lead instructor at RhythmAddict Dance Studio. Her goal is to create a welcoming place where adults can learn to dance, build confidence, and enjoy connecting with others.",
+          "Whether you're stepping onto the dance floor for the first time or continuing to develop your skills, Esther and the RhythmAddict community are ready to support you throughout your dance journey."
+        ],
+        "name": "Esther",
+        "title": "Owner & Lead Instructor",
+        "cta": {
+          "enabled": true,
+          "label": "View Class Schedule",
+          "href": "#classes"
+        }
+      },
+      "published": {
+        "enabled": true,
+        "image": {
+          "src": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/MGyH4kHfwqGY581rV9FX/media/6a2a61d361b1ee5d887aadc4.jpg",
+          "alt": "Esther, owner and lead instructor at RhythmAddict Dance Studio"
+        },
+        "eyebrow": "Meet Your Instructor",
+        "heading": "Helping You Find Confidence on the Dance Floor",
+        "paragraphs": [
+          "Esther is the owner and lead instructor at RhythmAddict Dance Studio. Her goal is to create a welcoming place where adults can learn to dance, build confidence, and enjoy connecting with others.",
+          "Whether you're stepping onto the dance floor for the first time or continuing to develop your skills, Esther and the RhythmAddict community are ready to support you throughout your dance journey."
+        ],
+        "name": "Esther",
+        "title": "Owner & Lead Instructor",
+        "cta": {
+          "enabled": true,
+          "label": "View Class Schedule",
+          "href": "#classes"
+        }
+      },
+      "lastEditedAt": "2026-10-02T00:00:00Z",
+      "lastEditedBy": "migration:initial-seed",
+      "publishedAt": "2026-10-02T00:00:00Z",
+      "publishedBy": "migration:initial-seed"
+    },
+    {
+      "sectionId": "location-contact",
+      "version": 1,
+      "draft": {
+        "enabled": true,
+        "eyebrow": "Visit the Studio",
+        "heading": "Come Dance With Us",
+        "intro": "Have a question or ready to take your first class? Contact RhythmAddict or visit the studio in Rancho Cucamonga. We'll help you find the class that's right for you.",
+        "details": [
+          {
+            "label": "Visit Us",
+            "value": "9651 Business Center Drive, Building 15, Suite A, Rancho Cucamonga, CA"
+          },
+          {
+            "label": "Class Times",
+            "value": "View the class schedule for current days and times"
+          },
+          { "label": "Call", "value": "(909) 265-7647" },
+          { "label": "Email", "value": "Dance@RhythmAddictDance.com" }
+        ],
+        "button": {
+          "enabled": true,
+          "label": "Get Directions",
+          "href": "https://www.google.com/maps/place/RhythmAddict+Dance+Studio/@34.0978237,-117.594447,17z/data=!3m1!4b1!4m6!3m5!1s0x80c335bc808e8acd:0xe8cf41abce93ed50!8m2!3d34.0978237!4d-117.594447!16s%2Fg%2F1tf2y1y7?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D"
+        }
+      },
+      "published": {
+        "enabled": true,
+        "eyebrow": "Visit the Studio",
+        "heading": "Come Dance With Us",
+        "intro": "Have a question or ready to take your first class? Contact RhythmAddict or visit the studio in Rancho Cucamonga. We'll help you find the class that's right for you.",
+        "details": [
+          {
+            "label": "Visit Us",
+            "value": "9651 Business Center Drive, Building 15, Suite A, Rancho Cucamonga, CA"
+          },
+          {
+            "label": "Class Times",
+            "value": "View the class schedule for current days and times"
+          },
+          { "label": "Call", "value": "(909) 265-7647" },
+          { "label": "Email", "value": "Dance@RhythmAddictDance.com" }
+        ],
+        "button": {
+          "enabled": true,
+          "label": "Get Directions",
+          "href": "https://www.google.com/maps/place/RhythmAddict+Dance+Studio/@34.0978237,-117.594447,17z/data=!3m1!4b1!4m6!3m5!1s0x80c335bc808e8acd:0xe8cf41abce93ed50!8m2!3d34.0978237!4d-117.594447!16s%2Fg%2F1tf2y1y7?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D"
+        }
+      },
+      "lastEditedAt": "2026-10-02T00:00:00Z",
+      "lastEditedBy": "migration:initial-seed",
+      "publishedAt": "2026-10-02T00:00:00Z",
+      "publishedBy": "migration:initial-seed"
+    },
+    {
+      "sectionId": "navbar",
+      "version": 1,
+      "draft": {
+        "brand": { "name": "RhythmAddict", "href": "#home" },
+        "navigation": [
+          { "label": "Home", "href": "#home" },
+          { "label": "About Us", "href": "#welcome" },
+          { "label": "Classes", "href": "#classes" },
+          { "label": "Dance Styles", "href": "#styles" },
+          { "label": "Contact", "href": "#contact" }
+        ],
+        "primaryCta": { "label": "View Class Schedule", "href": "#classes" }
+      },
+      "published": {
+        "brand": { "name": "RhythmAddict", "href": "#home" },
+        "navigation": [
+          { "label": "Home", "href": "#home" },
+          { "label": "About Us", "href": "#welcome" },
+          { "label": "Classes", "href": "#classes" },
+          { "label": "Dance Styles", "href": "#styles" },
+          { "label": "Contact", "href": "#contact" }
+        ],
+        "primaryCta": { "label": "View Class Schedule", "href": "#classes" }
+      },
+      "lastEditedAt": "2026-10-02T00:00:00Z",
+      "lastEditedBy": "migration:initial-seed",
+      "publishedAt": "2026-10-02T00:00:00Z",
+      "publishedBy": "migration:initial-seed"
+    },
+    {
+      "sectionId": "footer",
+      "version": 1,
+      "draft": {
+        "brand": { "name": "RhythmAddict", "href": "#home" },
+        "description": "A welcoming adult dance community in Rancho Cucamonga where students can build confidence, improve their skills, and connect through Salsa, Bachata, Cumbia, Ballroom, and Swing.",
+        "explore": {
+          "heading": "Explore",
+          "links": [
+            { "label": "About Us", "href": "#welcome" },
+            { "label": "Class Schedule", "href": "#classes" },
+            { "label": "Dance Styles", "href": "#styles" },
+            { "label": "Contact Us", "href": "#contact" }
+          ]
+        },
+        "connect": {
+          "heading": "Connect",
+          "items": [
+            "9651 Business Center Drive",
+            "Building 15, Suite A",
+            "Rancho Cucamonga, CA",
+            "(909) 265-7647",
+            "Dance@RhythmAddictDance.com"
+          ]
+        },
+        "copyright": "RhythmAddict Dance Studio. Learn, connect, and keep dancing."
+      },
+      "published": {
+        "brand": { "name": "RhythmAddict", "href": "#home" },
+        "description": "A welcoming adult dance community in Rancho Cucamonga where students can build confidence, improve their skills, and connect through Salsa, Bachata, Cumbia, Ballroom, and Swing.",
+        "explore": {
+          "heading": "Explore",
+          "links": [
+            { "label": "About Us", "href": "#welcome" },
+            { "label": "Class Schedule", "href": "#classes" },
+            { "label": "Dance Styles", "href": "#styles" },
+            { "label": "Contact Us", "href": "#contact" }
+          ]
+        },
+        "connect": {
+          "heading": "Connect",
+          "items": [
+            "9651 Business Center Drive",
+            "Building 15, Suite A",
+            "Rancho Cucamonga, CA",
+            "(909) 265-7647",
+            "Dance@RhythmAddictDance.com"
+          ]
+        },
+        "copyright": "RhythmAddict Dance Studio. Learn, connect, and keep dancing."
+      },
+      "lastEditedAt": "2026-10-02T00:00:00Z",
+      "lastEditedBy": "migration:initial-seed",
+      "publishedAt": "2026-10-02T00:00:00Z",
+      "publishedBy": "migration:initial-seed"
+    }
+  ]
 }
