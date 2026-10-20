@@ -71,6 +71,22 @@ Resources:
                 httpMethod: POST
                 type: aws_proxy
 
+  ContentReadFunctionPermissionContent:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ContentReadFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ContentApi}/*/GET/content
+
+  ContentReadFunctionPermissionContentById:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ContentReadFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ContentApi}/*/GET/content/*
+
 Outputs:
   ApiUrl:
     Description: "API base URL (invoke after deploy)"
