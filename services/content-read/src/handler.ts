@@ -2,13 +2,13 @@ import {
   DynamoDBClient,
   GetItemCommand,
   BatchGetItemCommand,
+  type AttributeValue,
 } from "@aws-sdk/client-dynamodb";
+import { unmarshall } from "@aws-sdk/util-dynamodb";
 import { SectionSchemas, type SectionId } from "../../../lib/schemas";
-import { z } from "zod";
 
 const REGION = process.env.AWS_REGION || "us-east-1";
-const TABLE_NAME =
-  process.env.TABLE_NAME || process.env.TABLE_NAME || "CmsContent";
+const TABLE_NAME = process.env.TABLE_NAME || "CmsContent";
 
 const client = new DynamoDBClient({ region: REGION });
 
@@ -20,6 +20,25 @@ function respond(statusCode: number, body: unknown) {
   };
 }
 
+// Verify that a section ID exists in our schemas.
+function isSectionId(id: string): id is SectionId {
+  return Object.prototype.hasOwnProperty.call(SectionSchemas, id);
+}
+
+// Convert DynamoDB's published attribute into JavaScript data.
+function parsePublished(attribute: AttributeValue): unknown {
+  if (attribute.M !== undefined) {
+    return unmarshall(attribute.M);
+  }
+
+  if (attribute.S !== undefined) {
+    return JSON.parse(attribute.S);
+  }
+
+  // Preserve existing fallback behavior for other attribute types.
+  return attribute;
+}
+
 export const handler = async (event: any) => {
   try {
     const path =
@@ -27,14 +46,19 @@ export const handler = async (event: any) => {
       event?.path ||
       event?.requestContext?.http?.path ||
       "/content";
+
     const sectionId =
       event?.pathParameters?.sectionId ||
-      (event?.queryStringParameters && event.queryStringParameters.sectionId);
+      event?.queryStringParameters?.sectionId;
 
     if (path.startsWith("/content/") || sectionId) {
       const id = sectionId || path.split("/content/")[1];
-      if (!id) return respond(400, { message: "missing sectionId" });
-      return await handleGetSection(id as SectionId);
+
+      if (!id) {
+        return respond(400, { message: "missing sectionId" });
+      }
+
+      return await handleGetSection(id);
     }
 
     if (path === "/content" || path === "/content/") {
@@ -44,81 +68,88 @@ export const handler = async (event: any) => {
     return respond(404, { message: "not found" });
   } catch (err) {
     console.error("handler error", err);
-    return respond(500, { message: "internal server error" });
+
+    return respond(500, {
+      message: "internal server error",
+    });
   }
 };
 
-async function handleGetSection(sectionId: SectionId) {
+async function handleGetSection(sectionId: string) {
+  // Validate the section ID before querying DynamoDB.
+  if (!isSectionId(sectionId)) {
+    console.error("unknown sectionId", sectionId);
+
+    return respond(404, {
+      message: "unknown sectionId",
+    });
+  }
+
   const cmd = new GetItemCommand({
     TableName: TABLE_NAME,
     Key: { sectionId: { S: sectionId } },
   });
 
   const res = await client.send(cmd);
+
   if (!res.Item || !res.Item.published) {
     return respond(404, { message: "not found" });
   }
 
-  // DynamoDB represents maps as M - but assuming stored JSON in 'published' as S or M
-  let published: any;
-  if (res.Item.published.M) {
-    published = unmarshall(res.Item.published.M);
-  } else if (res.Item.published.S) {
-    published = JSON.parse(res.Item.published.S);
-  } else {
-    published = res.Item.published;
-  }
-
   const schema = SectionSchemas[sectionId];
+
   try {
+    const published = parsePublished(res.Item.published);
     const parsed = schema.parse(published);
+
     return respond(200, {
       sectionId,
       published: parsed,
       metadata: extractMetadata(res.Item),
     });
-  } catch (zErr) {
-    console.error("validation failed", { sectionId, error: zErr });
-    return respond(502, { message: "validation failed" });
+  } catch (err) {
+    console.error("invalid published data", {
+      sectionId,
+      error: err,
+    });
+
+    return respond(502, {
+      message: "invalid published data",
+    });
   }
 }
 
-function extractMetadata(item: any) {
-  const meta: any = {};
-  if (item.version && item.version.N) meta.version = Number(item.version.N);
-  if (item.publishedAt && item.publishedAt.S)
+function extractMetadata(item: Record<string, AttributeValue>) {
+  const meta: {
+    version?: number;
+    publishedAt?: string;
+    publishedBy?: string;
+  } = {};
+
+  if (item.version?.N !== undefined) {
+    meta.version = Number(item.version.N);
+  }
+
+  if (item.publishedAt?.S !== undefined) {
     meta.publishedAt = item.publishedAt.S;
-  if (item.publishedBy && item.publishedBy.S)
+  }
+
+  if (item.publishedBy?.S !== undefined) {
     meta.publishedBy = item.publishedBy.S;
+  }
+
   return meta;
 }
 
-function unmarshall(map: any): any {
-  // Minimal unmarshall: convert DynamoDB JSON shape to plain JS
-  const out: any = {};
-  for (const key of Object.keys(map)) {
-    const v = map[key];
-    if (v.S !== undefined) out[key] = v.S;
-    else if (v.N !== undefined) out[key] = Number(v.N);
-    else if (v.M !== undefined) out[key] = unmarshall(v.M);
-    else if (v.L !== undefined)
-      out[key] = v.L.map((i: any) => {
-        if (i.S !== undefined) return i.S;
-        if (i.N !== undefined) return Number(i.N);
-        if (i.M !== undefined) return unmarshall(i.M);
-        return i;
-      });
-    else out[key] = v;
-  }
-  return out;
-}
-
 async function handleGetAll() {
-  // Use the SectionSchemas keys as the list of sectionIds
+  // Use schema keys as the list of expected section IDs.
   const sectionIds = Object.keys(SectionSchemas) as SectionId[];
 
-  // Build BatchGetItem request
-  const keys = sectionIds.map((id) => ({ sectionId: { S: id } }));
+  // Build the BatchGetItem request.
+  const keys = sectionIds.map((id) => ({
+    sectionId: { S: id },
+  }));
+
   const cmd = new BatchGetItemCommand({
     RequestItems: {
       [TABLE_NAME]: {
@@ -128,59 +159,81 @@ async function handleGetAll() {
   });
 
   const res = await client.send(cmd);
-  const responses = (res.Responses && res.Responses[TABLE_NAME]) || [];
 
-  // Fail-loud if DynamoDB indicates any unprocessed keys
+  const responses = res.Responses?.[TABLE_NAME] || [];
+
+  // Fail loudly if DynamoDB did not process all requested keys.
   if (res.UnprocessedKeys && Object.keys(res.UnprocessedKeys).length > 0) {
     console.error("BatchGetItem returned UnprocessedKeys", res.UnprocessedKeys);
-    return respond(502, { message: "unprocessed keys from BatchGetItem" });
+
+    return respond(502, {
+      message: "unprocessed keys from BatchGetItem",
+    });
   }
 
-  // Ensure we received every expected sectionId; fail loudly if any are missing
+  // Check that every expected section was returned.
   const returnedIds: string[] = responses
-    .map((it: any) => (it.sectionId && it.sectionId.S) || undefined)
-    .filter((x): x is string => typeof x === "string");
+    .map((item) => item.sectionId?.S)
+    .filter((id): id is string => typeof id === "string");
 
   const missing = sectionIds.filter((id) => !returnedIds.includes(id));
+
   if (missing.length > 0) {
     console.error("BatchGetItem missing items", {
       expected: sectionIds.length,
       got: returnedIds.length,
       missing,
     });
+
     return respond(502, {
       message: "missing items in BatchGetItem response",
       missing,
     });
   }
 
-  const result: Record<string, any> = {};
+  const result: Record<string, unknown> = {};
+
   for (const item of responses) {
     if (!item.published) {
       console.error("missing published for item", item);
+
       return respond(502, {
         message: "missing published for one or more items",
       });
     }
-    const id = item.sectionId.S;
+
+    const id = item.sectionId?.S;
+
     if (!id) {
       console.error("missing sectionId for item", item);
+
       return respond(502, {
         message: "missing sectionId for one or more items",
       });
     }
-    let published: any;
-    if (item.published.M) published = unmarshall(item.published.M);
-    else if (item.published.S) published = JSON.parse(item.published.S);
-    else published = item.published;
 
-    const schema = SectionSchemas[id as SectionId];
+    // Ensure DynamoDB returned a recognized section.
+    if (!isSectionId(id)) {
+      console.error("unknown sectionId", id);
+
+      return respond(502, {
+        message: "unknown sectionId",
+      });
+    }
+
+    const schema = SectionSchemas[id];
+
     try {
+      const published = parsePublished(item.published);
       const parsed = schema.parse(published);
+
       result[id] = parsed;
-    } catch (zErr) {
-      console.error("validation failed for section", id, zErr);
-      return respond(502, { message: `validation failed for section ${id}` });
+    } catch (err) {
+      console.error("invalid published data for section", id, err);
+
+      return respond(502, {
+        message: `invalid published data for section ${id}`,
+      });
     }
   }
 
