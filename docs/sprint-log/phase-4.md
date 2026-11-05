@@ -86,3 +86,44 @@ Introduce a minimal async `ContentService` boundary so the rest of the applicati
 
 - The `ContentService` provides a single place to swap a local implementation for an API adapter in a future sprint; that swap should be contained to `lib/content-service` (or a new adapter module) and not require changes to UI components.
 - Follow-up work (Sprint 4.4+) will add a read-only API adapter and integrate network validation and caching strategies; nothing of that nature was added here.
+
+---
+
+## Sprint 4.4 — Read-Only AWS CMS Backend
+
+### Status
+
+Completed
+
+### Goal
+
+Ship the read-only AWS-backed CMS backend for published content. The backend should provide a stable public API for reading CMS sections, validate response payloads, and enough operational confidence to support the next frontend integration sprint.
+
+### Completed
+
+- Created the `CmsContent` DynamoDB table and seeded it with 9 CMS sections.
+- Deployed the Node.js 24 Lambda `content-read-function` using AWS SAM and CloudFormation.
+- Configured the API Gateway REST API (`cms-content-api`, `dev` stage) with Lambda invoke permissions for the public content routes.
+- Implemented read logic for published content using DynamoDB `GetItem` and `BatchGetItem` calls.
+- Used AWS SDK `unmarshall()` to convert DynamoDB `AttributeValue` objects into JavaScript objects before response shaping.
+- Added Zod validation for published content responses before returning them to the caller.
+- Verified the deployed APIs:
+  - `GET /content` returned HTTP 200 with all 9 sections.
+  - `GET /content/hero` returned HTTP 200 with the published hero content and metadata.
+- Confirmed the deployment completed successfully in the `cms-backend-dev` stack in `us-west-1`.
+
+### Scope still pending
+
+The following items are explicitly not part of Sprint 4.4 and remain planned for future work:
+
+- Next.js frontend integration to consume the read-only API and render published CMS content
+- Admin editing workflow and draft persistence
+- Draft save and publish operations
+- Cognito authentication for admin endpoints
+- Publishing/versioning and media upload flows
+
+### Next Sprint
+
+The next planned sprint in the existing roadmap is Sprint 4.5: **Cognito & Admin Authentication**.
+
+This follows the current Phase 4 plan and continues the sequence from read-only backend delivery into protected admin functionality, persisting drafts, and the eventual publishing workflow.

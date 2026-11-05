@@ -87,7 +87,7 @@
 
 ## Phase 4
 
-**Status: Active**
+**Status: Backend read-only milestone complete; frontend/admin work remains for later sprints**
 
 ### Sprint 4.1
 
@@ -103,15 +103,12 @@
 
 ### Sprint 4.4
 
-- [ ] Read-Only AWS Backend — Active
-
-### Sprint 4.4
-
-- [ ] Read-Only AWS Backend
+- [x] Read-Only AWS Backend — Completed
 
 ### Sprint 4.5
 
 - [ ] Cognito & Admin Authentication
+- [ ] Next.js frontend API integration for published CMS content following Sprint 4.4 backend completion
 
 ### Sprint 4.6
 

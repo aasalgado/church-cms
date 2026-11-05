@@ -114,9 +114,33 @@ This DynamoDB item schema is the approved v1 data model for Phase 4. It is a des
 
 ## AWS Resource Inventory
 
-Status: No AWS resources currently exist for this project. The infrastructure inventory and resource provisioning plan will begin during the backend implementation sprints (starting in Sprint 4.2).
+Status: Sprint 4.4 completed for the read-only AWS CMS backend. The project now includes a provisioned DynamoDB table, Lambda function, and API Gateway REST API in `us-west-1`.
 
-Records of provisioned resources, ARNs, and IaC references will be added here as Sprint 4 progresses and resources are created.
+### Provisioned backend resources (Sprint 4.4)
+
+- **DynamoDB table:** `CmsContent` — active, seeded with 9 CMS sections
+- **Lambda:** `content-read-function` — Node.js 24 runtime, deployed via AWS SAM and CloudFormation
+- **API Gateway:** `cms-content-api` — `dev` stage, public REST endpoints for read operations
+- **IAM / permissions:** The Lambda execution role grants DynamoDB read access (`GetItem` and `BatchGetItem`) to the `CmsContent` table. Separate Lambda resource-based permissions allow API Gateway to invoke the Lambda for the `GET /content` and `GET /content/{sectionId}` routes.
+
+### Verified read-only endpoints
+
+The published backend was validated in the `cms-backend-dev` stack in `us-west-1`:
+
+- `GET /content` → HTTP 200, returns all 9 sections
+- `GET /content/hero` → HTTP 200, returns published content and metadata
+
+These endpoints read only the published content and validate the payload with Zod before returning the response. The Lambda uses DynamoDB `GetItem` and `BatchGetItem` to fetch section records and AWS SDK `unmarshall()` to convert `AttributeValue` objects into JavaScript objects before validation.
+
+### Scope remaining after Sprint 4.4
+
+Completed backend work for v1 includes the read-only infrastructure and public API layer. The following items remain deferred and are not part of Sprint 4.4:
+
+- Frontend integration to call the API and render dynamic CMS content in the Next.js app
+- Admin UI editing, save drafts, and client-side state persistence
+- Draft authoring and publish workflow
+- Cognito authentication for admin endpoints
+- Authoring/publish API, validation, and versioning flows
 
 ---
 
