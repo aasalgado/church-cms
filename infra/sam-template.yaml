@@ -46,13 +46,14 @@ Resources:
         - email
       AutoVerifiedAttributes:
         - email
-      SelfSignUpEnabled: false
       MfaConfiguration: "OFF"
       DeletionProtection: INACTIVE
       AccountRecoverySetting:
         RecoveryMechanisms:
           - Name: verified_email
             Priority: 1
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: true
 
   CmsAdminUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
