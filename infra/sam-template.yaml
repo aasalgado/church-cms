@@ -1,6 +1,24 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: SAM template for Sprint 4.4 read-only CMS API (do not deploy without review).
+Description: SAM template for Sprint 4.4 read-only CMS API and Sprint 4.5 Cognito infrastructure (do not deploy without review).
+
+Parameters:
+  CognitoDomainPrefix:
+    Type: String
+    Description: Globally unique lowercase Cognito hosted-login domain prefix
+    MinLength: 1
+    MaxLength: 63
+    AllowedPattern: '^([a-z0-9]|[a-z0-9][a-z0-9-]{0,61}[a-z0-9])$'
+
+  CognitoCallbackUrl:
+    Type: String
+    Description: OAuth 2.0 authorization callback URL
+    Default: http://localhost:3000/auth/callback
+
+  CognitoLogoutUrl:
+    Type: String
+    Description: OAuth 2.0 logout callback URL
+    Default: http://localhost:3000/
 
 Globals:
   Function:
@@ -19,6 +37,67 @@ Resources:
       KeySchema:
         - AttributeName: sectionId
           KeyType: HASH
+
+  CmsAdminUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: cms-admin-users
+      UsernameAttributes:
+        - email
+      AutoVerifiedAttributes:
+        - email
+      SelfSignUpEnabled: false
+      MfaConfiguration: "OFF"
+      DeletionProtection: INACTIVE
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+          - Name: verified_email
+            Priority: 1
+
+  CmsAdminUserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: cms-admin-nextjs
+      UserPoolId: !Ref CmsAdminUserPool
+      GenerateSecret: false
+      AllowedOAuthFlowsUserPoolClient: true
+      AllowedOAuthFlows:
+        - code
+      AllowedOAuthScopes:
+        - openid
+        - email
+        - profile
+      CallbackURLs:
+        - !Ref CognitoCallbackUrl
+      LogoutURLs:
+        - !Ref CognitoLogoutUrl
+      SupportedIdentityProviders:
+        - COGNITO
+      EnableTokenRevocation: true
+      PreventUserExistenceErrors: ENABLED
+      AccessTokenValidity: 60
+      IdTokenValidity: 60
+      RefreshTokenValidity: 30
+      TokenValidityUnits:
+        AccessToken: minutes
+        IdToken: minutes
+        RefreshToken: days
+      ExplicitAuthFlows:
+        - ALLOW_REFRESH_TOKEN_AUTH
+
+  CmsAdminUserPoolDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Properties:
+      Domain: !Ref CognitoDomainPrefix
+      UserPoolId: !Ref CmsAdminUserPool
+
+  CmsAdminGroup:
+    Type: AWS::Cognito::UserPoolGroup
+    Properties:
+      GroupName: cms-admin
+      Description: Administrators authorized to manage CMS content
+      UserPoolId: !Ref CmsAdminUserPool
+      Precedence: 1
 
   ContentReadFunction:
     Type: AWS::Serverless::Function
@@ -94,3 +173,12 @@ Outputs:
   TableName:
     Description: "CmsContent table name"
     Value: !Ref CmsContentTable
+  CmsAdminUserPoolId:
+    Description: Cognito User Pool ID for CMS administrators
+    Value: !Ref CmsAdminUserPool
+  CmsAdminAppClientId:
+    Description: Cognito app client ID for CMS administrators
+    Value: !Ref CmsAdminUserPoolClient
+  CmsAdminHostedLoginDomain:
+    Description: Cognito hosted-login domain
+    Value: !Sub "https://${CognitoDomainPrefix}.auth.${AWS::Region}.amazoncognito.com"
