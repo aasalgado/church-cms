@@ -167,6 +167,21 @@ Resources:
       Principal: apigateway.amazonaws.com
       SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ContentApi}/*/GET/content/*
 
+  CmsSessionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: CmsSessions
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: sessionHash
+          AttributeType: S
+      KeySchema:
+        - AttributeName: sessionHash
+          KeyType: HASH
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+
 Outputs:
   ApiUrl:
     Description: "API base URL (invoke after deploy)"
@@ -183,3 +198,6 @@ Outputs:
   CmsAdminHostedLoginDomain:
     Description: Cognito hosted-login domain
     Value: !Sub "https://${CognitoDomainPrefix}.auth.${AWS::Region}.amazoncognito.com"
+  SessionsTableName:
+    Description: "CmsSessions table name"
+    Value: !Ref CmsSessionsTable
